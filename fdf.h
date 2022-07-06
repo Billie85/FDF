@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 18:59:57 by root              #+#    #+#             */
-/*   Updated: 2022/07/02 21:23:27 by root             ###   ########.fr       */
+/*   Updated: 2022/07/04 22:10:06 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,12 @@
 # include <string.h>
 # include <stdint.h>
 # include <math.h>
+
+typedef struct s_fdf
+{
+		int data;
+}t_fdf;
+
+void ft_read(char *argv, t_fdf *fdf);
 
 # endif

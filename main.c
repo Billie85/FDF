@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 19:09:04 by root              #+#    #+#             */
-/*   Updated: 2022/07/04 00:49:14 by root             ###   ########.fr       */
+/*   Updated: 2022/07/06 11:04:03 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,12 @@
 
 int     main(int argc, char **argv)
 {
-	char    *take_out_line;
-	char    **new_map;
-	int     i;
-	int		fd;
+	t_fdf	*fdf;
 
-	fd = open("test.txt", O_RDONLY);
-	
-	take_out_line = get_next_line(fd);
-	
-	i = 0;
-	while(take_out_line[i]  != '\0')
+	fdf = (t_fdf *)malloc(sizeof(t_fdf));
+	if (argc == 2)
 	{
-		printf("%s\n", take_out_line);
-		take_out_line = get_next_line(fd);
-		i++;
+		//if fdf is null...error
+		ft_read(argv[1], fdf);
 	}
 }
