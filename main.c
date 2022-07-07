@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 19:09:04 by root              #+#    #+#             */
-/*   Updated: 2022/07/06 11:30:14 by root             ###   ########.fr       */
+/*   Updated: 2022/07/07 23:06:22 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,8 @@
 
 int     main(int argc, char **argv)
 {
-	t_fdf	*fdf;
+	fdf	*data;
 
-	fdf = (t_fdf *)malloc(sizeof(t_fdf));
-	if (argc == 2)
-	{
-		//if fdf is null...error
-		ft_read(argv[1], fdf);
-	}
+	data = (fdf *)malloc(sizeof(fdf));
+	read_file(argv[1], data);
 }

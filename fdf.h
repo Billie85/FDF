@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 18:59:57 by root              #+#    #+#             */
-/*   Updated: 2022/07/06 11:19:36 by root             ###   ########.fr       */
+/*   Updated: 2022/07/07 22:10:46 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,43 @@
 # include <stdint.h>
 # include <math.h>
 
-typedef struct s_fdf
-{
-		int data;
-}t_fdf;
+/* **  ------------------------------- resourses --------------------------------
+**	--------------- 3D ------------------------------------------
+**		x` = (x - y) * cos(angle);
+**		y` = (x + y) * sin(angle) - z;
+**	-------------------------------------------------------------
+** 	------- mlx_function ----------------------------------------
+**		void *mlx_ptr;
+**		void *win_prt;
+**
+**		mlx_ptr = mlx_init();
+**		win_prt = mlx_new_window(mlx_ptr, 1000, 1000, "FDF");
+**
+**		mlx_pixel_put(mlx_ptr, win_ptr, (int)x, (int)y, #color);
+**
+**		mlx_key_hook(win_ptr, deal_key, NULL);
+**		mlx_loop(mlx_ptr);
+**	--------------------------------------------------------------
+**	------- deal_key prototype -----------------------------------
+**		int		deal_key(int key, void *data);
+**	--------------------------------------------------------------
+**	colors:
+**		white = 0xffffff
+**		red = 0xe80c0c
+**	----------------------------
+**	frameworks:
+**		-framework OpenGL -framework AppKit */
 
-void ft_read(char *argv, t_fdf *fdf);
+typedef struct 
+{
+		int width;//幅
+		int height;//高さ
+		int **z_matrix;//z座標
+
+		void	*mlx_ptr;
+		void	*win_ptr;
+}				fdf;
+
+void	read_file(char *file_name, fdf *data);
 
 # endif
