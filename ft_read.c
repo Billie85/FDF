@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 22:08:26 by root              #+#    #+#             */
-/*   Updated: 2022/07/07 23:56:22 by root             ###   ########.fr       */
+/*   Updated: 2022/07/09 00:32:12 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,31 +35,30 @@ size_t	get_width(char *file_name)
 {
 	int	fd;
 	char *get_line;
-	size_t width;
 	char    *take_line;
 	char	**split_line;
-	size_t	 len1;
+	size_t	 width;
 	
 	fd = open (file_name, O_RDONLY);
 	while (take_line != NULL)
 	{
 		take_line = get_next_line(fd);
 		split_line = ft_split(take_line, ' ');
-		len1 = 0;
-		while (split_line[len1] != NULL)
+		printf("%s", *split_line);
+		width = 0;
+		while (split_line[width] != NULL)
 		{
-			printf("%s", split_line[len1]);
-			len1++;
+			printf("%s", split_line[width]);
+			width++;
 		}
 	}
-	free(take_line);
 	close(fd);
 	return (width); //幅の数は->19
 }
 
-void	fill_matrix(int *z_line, char *line)
+void	fill_matrix(size_t *z_line, char *line)
 {
-	int 	i;
+	size_t 	i;
 	char	**split_line;
 
 	split_line = ft_split(line, ' ');
@@ -80,7 +79,7 @@ void	read_file(char *file_name, fdf *data)
 	//2, get the width
 	int fd;
 	char *line;
-	int	i;
+	size_t	i;
 	
 	data->height = get_height(file_name);//高さ
 	data->width = get_width(file_name);//幅

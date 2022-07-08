@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 18:59:57 by root              #+#    #+#             */
-/*   Updated: 2022/07/07 23:40:44 by root             ###   ########.fr       */
+/*   Updated: 2022/07/08 23:52:34 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@
 
 typedef struct 
 {
-		int width;//幅
-		int height;//高さ
-		int **z_matrix;//z座標
+		size_t width;//幅
+		size_t height;//高さ
+		size_t **z_matrix;//z座標
 
 		void	*mlx_ptr;
 		void	*win_ptr;

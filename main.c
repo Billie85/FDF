@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 19:09:04 by root              #+#    #+#             */
-/*   Updated: 2022/07/07 23:57:29 by root             ###   ########.fr       */
+/*   Updated: 2022/07/08 23:52:55 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int     main(int argc, char **argv)
 {
 	fdf	*data;
-	int i;
-	int j;
+	size_t i;
+	size_t j;
 
 	data = (fdf *)malloc(sizeof(fdf));
 	read_file(argv[1], data);
