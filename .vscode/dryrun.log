@@ -1,6 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/root/github_FDF'
-make: Leaving directory '/root/github_FDF'
- 
-make: *** No targets specified and no makefile found.  Stop.
-
