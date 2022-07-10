@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/02 19:09:04 by root              #+#    #+#             */
-/*   Updated: 2022/07/08 23:52:55 by root             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "fdf.h"
 
 int     main(int argc, char **argv)
@@ -19,7 +7,7 @@ int     main(int argc, char **argv)
 	size_t j;
 
 	data = (fdf *)malloc(sizeof(fdf));
-	read_file(argv[1], data);
+	read_file("color.txt", data);
 	
 /* 	i = 0;
 	while(i < data->height)

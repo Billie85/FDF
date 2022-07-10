@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_read.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 22:08:26 by root              #+#    #+#             */
-/*   Updated: 2022/07/09 00:32:12 by root             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "fdf.h"
 
 //get height->最初にマップの高さを調べるよ。
@@ -38,19 +26,21 @@ size_t	get_width(char *file_name)
 	char    *take_line;
 	char	**split_line;
 	size_t	 width;
-	
+
+
 	fd = open (file_name, O_RDONLY);
+	take_line = get_next_line(fd);
 	while (take_line != NULL)
 	{
-		take_line = get_next_line(fd);
 		split_line = ft_split(take_line, ' ');
-		printf("%s", *split_line);
 		width = 0;
 		while (split_line[width] != NULL)
 		{
 			printf("%s", split_line[width]);
 			width++;
 		}
+		free(take_line);
+		take_line = get_next_line(fd);
 	}
 	close(fd);
 	return (width); //幅の数は->19
@@ -79,12 +69,11 @@ void	read_file(char *file_name, fdf *data)
 	//2, get the width
 	int fd;
 	char *line;
-	size_t	i;
+	//size_t	i;
 	
 	data->height = get_height(file_name);//高さ
 	data->width = get_width(file_name);//幅
 	/* data->z_matrix = (int **)malloc(sizeof(int*) * (data->height + 1)); //z軸
-
 	i = 0;
 	while(i <= data->height) //高さの数は10だから10回る。
 	{
