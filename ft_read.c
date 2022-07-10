@@ -35,10 +35,8 @@ size_t	get_width(char *file_name)
 		split_line = ft_split(take_line, ' ');
 		width = 0;
 		while (split_line[width] != NULL)
-		{
-			printf("%s", split_line[width]);
+			//printf("%s", split_line[width]);
 			width++;
-		}
 		free(take_line);
 		take_line = get_next_line(fd);
 	}
@@ -69,30 +67,30 @@ void	read_file(char *file_name, fdf *data)
 	//2, get the width
 	int fd;
 	char *line;
-	//size_t	i;
+	size_t	i;
 	
 	data->height = get_height(file_name);//高さ
 	data->width = get_width(file_name);//幅
-	/* data->z_matrix = (int **)malloc(sizeof(int*) * (data->height + 1)); //z軸
+
+	data->z_matrix = (size_t **)malloc(sizeof(size_t*) * (data->height + 1)); //z軸
 	i = 0;
 	while(i <= data->height) //高さの数は10だから10回る。
 	{
-		data->z_matrix[i++] = (int*)malloc(sizeof(int) * (data->width + 1));
+			data->z_matrix[i] = (size_t*)malloc(sizeof(size_t) * (data->width + 1));
+			i++;
 	}
-		
 		fd = open (file_name, O_RDONLY);
+		line = get_next_line(fd);
 		i = 0;
 		while (line != NULL)
 		{
-			line = get_next_line(fd);
 			fill_matrix(data->z_matrix[i], line);
 			free(line);
+			line = get_next_line(fd);
 			i++;
 		}
 		close(fd);
 		data->z_matrix[i] = NULL;
-		 */
-	
 //intの形で高さの情報を収納する行列を作って
 //高さの数字を書き込んでいく
 
