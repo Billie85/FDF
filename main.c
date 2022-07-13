@@ -8,8 +8,9 @@ int     main(int argc, char **argv)
 
 	data = (fdf *)malloc(sizeof(fdf));
 	read_file("color.txt", data);
+	//data->mlx_ptr = 
 	
-	i = 0;
+	i = 0; //map
 	while(i < data->height)
 	{
 		j = 0;

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 18:59:57 by root              #+#    #+#             */
-/*   Updated: 2022/07/08 23:52:34 by root             ###   ########.fr       */
+/*   Updated: 2022/07/14 00:00:26 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FDF_H
 
 #include "get_next_line/get_next_line.h"
+#include "minilibx_macos/mlx.h"
 #include "libft/libft.h"
 # include <unistd.h>
 # include <stddef.h>
