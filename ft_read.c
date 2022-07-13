@@ -93,6 +93,4 @@ void	read_file(char *file_name, fdf *data)
 		data->z_matrix[i] = NULL;
 //intの形で高さの情報を収納する行列を作って
 //高さの数字を書き込んでいく
-//
-
 }
