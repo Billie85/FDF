@@ -22,9 +22,9 @@ size_t	get_height(char *file_name)//OK
 size_t	get_width(char *file_name)
 {
 	int	fd;
-	char *get_line;
-	char    *take_line;
-	char	**split_line;
+	char	*get_line;
+	char	*take_line;
+	char**split_line;
 	size_t	 width;
 
 
@@ -93,6 +93,6 @@ void	read_file(char *file_name, fdf *data)
 		data->z_matrix[i] = NULL;
 //intの形で高さの情報を収納する行列を作って
 //高さの数字を書き込んでいく
-
+//
 
 }

@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jul  7 16:14:01 2022
+# Make data base, printed on Wed Jul 13 20:34:23 2022
 
 # Variables
 
@@ -18,8 +18,6 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 WSLENV = VSCODE_WSL_EXT_LOCATION/up
 # default
 .SHELLFLAGS := -c
-# environment
-VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -31,7 +29,7 @@ CURDIR := /root/github_FDF
 # makefile
 SHELL = /bin/sh
 # environment
-VSCODE_NLS_CONFIG = {"locale":"ja","availableLanguages":{"*":"ja"},"_languagePackId":"3cd3bd15e30fa0124a3f232cbca66525.ja","_translationsConfigFile":"/root/.vscode-server/data/clp/3cd3bd15e30fa0124a3f232cbca66525.ja/tcf.json","_cacheRoot":"/root/.vscode-server/data/clp/3cd3bd15e30fa0124a3f232cbca66525.ja","_resolvedLanguagePackCoreLocation":"/root/.vscode-server/data/clp/3cd3bd15e30fa0124a3f232cbca66525.ja/30d9c6cd9483b2cc586687151bcbcd635f373630","_corruptedFile":"/root/.vscode-server/data/clp/3cd3bd15e30fa0124a3f232cbca66525.ja/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"ja","availableLanguages":{"*":"ja"},"_languagePackId":"96f3e8db934f372e4b51ec41decd7891.ja","_translationsConfigFile":"/root/.vscode-server/data/clp/96f3e8db934f372e4b51ec41decd7891.ja/tcf.json","_cacheRoot":"/root/.vscode-server/data/clp/96f3e8db934f372e4b51ec41decd7891.ja","_resolvedLanguagePackCoreLocation":"/root/.vscode-server/data/clp/96f3e8db934f372e4b51ec41decd7891.ja/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9","_corruptedFile":"/root/.vscode-server/data/clp/96f3e8db934f372e4b51ec41decd7891.ja/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /usr/bin/sh
 # makefile
@@ -39,23 +37,19 @@ MAKEFILE_LIST :=
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
-VSCODE_VERBOSE_LOGGING = true
-# environment
 VSCODE_CWD = /mnt/c/Users/angel/AppData/Local/Programs/Microsoft VS Code
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /root/.vscode-server/bin/30d9c6cd9483b2cc586687151bcbcd635f373630/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Users/angel/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/angel/AppData/Local/Programs/Microsoft VS Code/bin
+PATH = /root/.vscode-server/bin/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Users/angel/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/angel/AppData/Local/Programs/Microsoft VS Code/bin
 # environment
-VSCODE_LOG_STACK = false
+ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-55ab2035-3e39-4143-8a92-e37262b18f3f.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-fb917318-11ca-478c-89f6-97ae6bd2ff0c.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # automatic
 %F = $(notdir $%)
-# environment
-VSCODE_PIPE_LOGGING = true
 # environment
 PWD = /root/github_FDF
 # default
@@ -131,11 +125,9 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_EXTHOST_WILL_SEND_SOCKET = true
-# environment
 WSL_DISTRO_NAME = Ubuntu
 # variable set hash-table stats:
-# Load=62/1024=6%, Rehash=0, Collisions=4/84=5%
+# Load=58/1024=6%, Rehash=0, Collisions=4/80=5%
 
 # Pattern-specific Variable Values
 
@@ -143,9 +135,9 @@ WSL_DISTRO_NAME = Ubuntu
 
 # Directories
 
-# . (device 2, inode 27584547717653378): 13 files, no impossibilities.
+# . (device 2, inode 27584547717653378): 14 files, no impossibilities.
 
-# 13 files, no impossibilities in 1 directories.
+# 14 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -195,13 +187,13 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 21 / storage = 174 B / avg = 8 B
-# current buf: size = 8162 B / used = 174 B / count = 21 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 22 / storage = 184 B / avg = 8 B
+# current buf: size = 8162 B / used = 184 B / count = 22 / avg = 8 B
 
-# strcache performance: lookups = 24 / hit rate = 12%
+# strcache performance: lookups = 25 / hit rate = 12%
 # hash-table stats:
-# Load=21/8192=0%, Rehash=0, Collisions=1/24=4%
-# Finished Make data base on Thu Jul  7 16:14:01 2022
+# Load=22/8192=0%, Rehash=0, Collisions=1/25=4%
+# Finished Make data base on Wed Jul 13 20:34:23 2022
 
  
 make: *** No rule to make target 'all'.  Stop.
