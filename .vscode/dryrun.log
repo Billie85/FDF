@@ -1,0 +1,9 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/root/github_FDF'
+make -C ./mlx_linux
+make[1]: Entering directory '/root/github_FDF/mlx_linux'
+./configure
+make[1]: Leaving directory '/root/github_FDF/mlx_linux'
+gcc main.o ft_read.o draw.o -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o fdf
+make: Leaving directory '/root/github_FDF'
+ 
