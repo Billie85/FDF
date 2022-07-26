@@ -24,7 +24,7 @@ size_t	get_width(char *file_name)
 	int	fd;
 	char	*get_line;
 	char	*take_line;
-	char**split_line;
+	char	**split_line;
 	size_t	 width;
 
 

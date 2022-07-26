@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 18:59:57 by root              #+#    #+#             */
-/*   Updated: 2022/07/17 00:21:33 by root             ###   ########.fr       */
+/*   Updated: 2022/07/26 15:56:56 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FDF_H
 
 #include "get_next_line/get_next_line.h"
-#include "../mlx_linux/mlx.h"
+#include "mlx_linux/mlx.h"
 #include "libft/libft.h"
 # include <unistd.h>
 # include <stddef.h>
@@ -65,6 +65,9 @@ typedef struct
 }				fdf;
 
 void	read_file(char *file_name, fdf *data);
+void	fill_matrix(size_t *z_line, char *line);
+//size_t	get_width(char *file_name);
+//size_t	get_height(char *file_name);
 void	bresenham_algorithm(float x, float y, float x1, float y1, fdf *data);
 
 # endif
