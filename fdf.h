@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 18:59:57 by root              #+#    #+#             */
-/*   Updated: 2022/07/26 15:56:56 by root             ###   ########.fr       */
+/*   Updated: 2022/07/27 15:54:57 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	read_file(char *file_name, fdf *data);
 void	fill_matrix(size_t *z_line, char *line);
 //size_t	get_width(char *file_name);
 //size_t	get_height(char *file_name);
-void	bresenham_algorithm(float x, float y, float x1, float y1, fdf *data);
+//void	bresenham_algorithm(float x, float y, float x1, float y1, fdf *data);
+void	bresenham_algorithm(int x0, int y0, int x1, int y1, fdf *data);
 
 # endif

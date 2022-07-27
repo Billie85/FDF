@@ -6,8 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
- 
-# Make data base, printed on Tue Jul 26 16:23:41 2022
+# Make data base, printed on Wed Jul 27 15:20:02 2022
 
 # Variables
 
@@ -32,6 +31,7 @@ SHELL = /bin/sh
 # makefile (from 'Makefile', line 16)
 RM = rm -f
 # environment
+ 
 VSCODE_NLS_CONFIG = {"locale":"ja","availableLanguages":{"*":"ja"},"_languagePackId":"29207410cd77a70b4b25e4878dda93be.ja","_translationsConfigFile":"/root/.vscode-server/data/clp/29207410cd77a70b4b25e4878dda93be.ja/tcf.json","_cacheRoot":"/root/.vscode-server/data/clp/29207410cd77a70b4b25e4878dda93be.ja","_resolvedLanguagePackCoreLocation":"/root/.vscode-server/data/clp/29207410cd77a70b4b25e4878dda93be.ja/3b889b090b5ad5793f524b5d1d39fda662b96a2a","_corruptedFile":"/root/.vscode-server/data/clp/29207410cd77a70b4b25e4878dda93be.ja/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /root/.vscode-server/bin/3b889b090b5ad5793f524b5d1d39fda662b96a2a/node
@@ -58,7 +58,7 @@ XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-03caf522-dc9b-4292-97c7-ba619e1452e7.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-53d49cab-5eab-4c6f-be84-352d2e19b241.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -74,7 +74,7 @@ PWD = /root/github_FDF
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/1318_interop
+WSL_INTEROP = /run/WSL/40_interop
 # environment
 PULSE_SERVER = /mnt/wslg/PulseServer
 # environment
@@ -86,7 +86,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 LOGNAME = root
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -160,7 +160,7 @@ TERM = xterm-256color
 # environment
 WSL_DISTRO_NAME = Ubuntu
 # variable set hash-table stats:
-# Load=74/1024=7%, Rehash=0, Collisions=6/104=6%
+# Load=74/1024=7%, Rehash=0, Collisions=6/108=6%
 
 # Pattern-specific Variable Values
 
@@ -168,10 +168,9 @@ WSL_DISTRO_NAME = Ubuntu
 
 # Directories
 
-# . (device 2080, inode 140277): 22 files, no impossibilities.
-# get_next_line (device 2080, inode 144883): 6 files, no impossibilities so far.
+# . (device 2080, inode 140277): 18 files, no impossibilities.
 
-# 28 files, no impossibilities in 2 directories.
+# 18 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -193,46 +192,35 @@ all: fdf
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
 
 # Not a target:
 main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-26 15:52:23.4523508
+#  Last modified 2022-07-27 15:17:48.8004992
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
-draw.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-14 01:15:13
-#  File has been updated.
-#  Successfully updated.
-
-get_next_line/get_next_line_utils.o: get_next_line/get_next_line_utils.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'get_next_line/get_next_line_utils'
-#  Last modified 2022-07-26 16:22:25.2523508
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 27):
-	$(CC) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+get_next_line/get_next_line_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-26 16:23:31.6723508
+#  Last modified 2022-07-27 15:19:42.9804992
 #  File has been updated.
 #  Successfully updated.
 
-ft_read.o: ft_read.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'ft_read'
-#  Last modified 2022-07-26 16:22:24.9023508
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 27):
-	$(CC) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+# Not a target:
+ft_read.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 fclean: clean
 #  Implicit rule search has not been done.
@@ -242,20 +230,10 @@ fclean: clean
 	$(RM) $(NAME) $(LIBFT)
 
 # Not a target:
-get_next_line/get_next_line_utils.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-10 20:55:06
-#  File has been updated.
-#  Successfully updated.
-
-get_next_line/get_next_line.o: get_next_line/get_next_line.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'get_next_line/get_next_line'
-#  Last modified 2022-07-26 16:22:25.1223508
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 27):
-	$(CC) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+get_next_line/get_next_line.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -277,63 +255,66 @@ clean:
 	make clean -C ./mlx_linux
 	$(RM) $(OBJS)
 
-# Not a target:
-ft_read.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-26 15:31:31.9223508
-#  File has been updated.
-#  Successfully updated.
-
- 
 main.o: main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  Last modified 2022-07-26 16:22:24.7823508
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 27):
-	$(CC) -I/usr/include -Imlx_linux -O3 -c $< -o $@
-
-draw.o: draw.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'draw'
-#  Last modified 2022-07-26 16:22:24.9823508
-#  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := main.o
+# automatic
+# % := 
+# automatic
+# * := main
+# automatic
+# + := main.c
+# automatic
+# | := 
+# automatic
+# < := main.c
+# automatic
+# ^ := main.c
+# automatic
+# ? := main.c
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/14=7%
 #  recipe to execute (from 'Makefile', line 27):
 	$(CC) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 # Not a target:
-get_next_line/get_next_line.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-10 20:54:47
-#  File has been updated.
-#  Successfully updated.
+draw.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 fdf: main.o ft_read.o draw.o get_next_line/get_next_line.o get_next_line/get_next_line_utils.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-26 16:22:32.3523508
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
 #  recipe to execute (from 'Makefile', line 21):
 	$(MAKE) -C ./mlx_linux
 	$(MAKE) -C ./libft
 	$(CC) $(OBJS) $(LIBFT) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 # files hash-table stats:
-# Load=19/1024=2%, Rehash=0, Collisions=0/59=0%
+# Load=15/1024=1%, Rehash=0, Collisions=0/43=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 47 / storage = 548 B / avg = 11 B
-# current buf: size = 8162 B / used = 548 B / count = 47 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 36 / storage = 315 B / avg = 8 B
+# current buf: size = 8162 B / used = 315 B / count = 36 / avg = 8 B
 
-# strcache performance: lookups = 80 / hit rate = 41%
+# strcache performance: lookups = 57 / hit rate = 36%
 # hash-table stats:
-# Load=47/8192=1%, Rehash=0, Collisions=1/80=1%
-# Finished Make data base on Tue Jul 26 16:23:41 2022
+ 
+# Load=36/8192=0%, Rehash=0, Collisions=1/57=2%
+# Finished Make data base on Wed Jul 27 15:20:02 2022
 
  
