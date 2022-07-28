@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.c                                              :+:      :+:    :+:   */
+/*   memo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 19:01:48 by root              #+#    #+#             */
-/*   Updated: 2022/07/13 23:50:53 by root             ###   ########.fr       */
+/*   Updated: 2022/07/28 00:32:06 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,3 +88,32 @@
 //2次元配列で計算をして、色々作って、そこにファイルを持ってきて、
 //その持ってきたtest.txtはz軸になってるから　メインの部分で位置を照らし合わせて、組み合わせていく。
 //マップを読み込む作業は終わったから、今度はlineを書いていくよ
+
+
+/* #define MAX1(a,b) (a < b ? a : b)
+#define MOD(a) ((a < 0) ? -a : a)
+int mod(int i)
+{
+	return (i < 0) ? -1 : i;
+}
+
+void	bresenham_algorithm(int x, int y, int x1, int y1, fdf *data)
+{
+	int x_step;
+	int y_step;
+	int max;
+
+	x_step = x1 - x;
+	y_step = y1 - y;
+
+	max = MAX(MOD(x_step), MOD(y_step));
+	x_step /= max;
+	y_step /= max;
+
+	while(1)
+	{
+		mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, 0xffffff);
+		x += x_step;
+		y += y_step;
+	}
+} */

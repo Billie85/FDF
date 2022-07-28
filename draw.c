@@ -1,66 +1,82 @@
 #include "fdf.h"
-//#define MAX(a, b) (a > b ? a : b);
 
-//傾きを求めたい ->直線上の2点を任意に取り、それらを (x, y), (x1, y1) m に代入する。
-/* float	gradient(float X, float Y)
-{
-	float	m;
-	
-	if((X) == 0)
-		m = (Y);
-	else
-	m = (Y) / (X);
-	return (m);
-}
-
-void	bresenham_algorithm(float x, float y, float x1, float y1, fdf *data)
-{
-	float	max;
-	float	X = x1 - x; //開始座標
-	float	Y = y1 - y;//終了座標
-	float	P;
-
-	max = gradient(X, Y);//傾き
-	X /= max;
-	Y /= max;
-	P = 2 *Y - X;
-	 while((size_t)(x - x1) || (size_t)(y - y1))
-	{
-		if(P >= 0)
-		{
-			mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, 0xffffff);
-			y += Y;
-			P = P+2*Y-2*X;
-		}
-		else
-		{
-			mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, 0xffffff);
-			P = P+2*Y;
-			x += X;
-		}
-	}
-} */
-
-void	bresenham_algorithm(int x0, int y0, int x1, int y1, fdf *data)
+ void	search_line(int x0, int y0, int x1, int y1, fdf *data)
 {
 	int dx, dy, p, x, y;
+//----------zoom----------
+	x0 *= data->zoom;
+	y0 *= data->zoom;
+	x1 *= data->zoom;
+	y1 *= data->zoom;
+
 	dx = x1-x0;
+	dy = y1-y0;
+
 	x = x0;
-	y = y0;
-	p =2 *dy-dx;
 
 	while(x <= x1)
 	{
-		mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, 0xffffff);
+		if (x == x0 || x == x1)
+		{
+			y = y0;
+			while(y <= y1)
+			{
+				mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, 0xffffff);
+				y++;
+			}
+		}
+			else 
+			{
+				y = y0;
+				if (y == y0 || y == y1)
+				{
+					x = x0;
+					while(x <= x1)
+					{
+						mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, 0xff0000);
+						x++;
+					}
+				}
+			}
 		x++;
+	}
+
+	/* p = 2 *dy-dx;
+
+	while(x <= x1)
+	{
 		if(p >= 0)
 		{
+			printf("aaaaaaaaa");
+			mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, 0xffffff);
+			y = y + 1;
 			p = p+2*dy-2*dx;
 		}
 		else
 		{
-			p =p+2*dy;
-			y++;
+			printf("bbbbbbbbbbb");
+			mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, 0xff0000);
+			p = p+2*dy;
 		}
+		x = x + 1;
+	} */
+}
+
+void	connect_line(fdf *data)
+{
+	int x;
+	int y;
+
+	 y = 0;
+	while(y < data->height)//高さ
+	{
+		x = 0;
+		while(x < data->width)//幅
+		{
+			search_line(x, y, x + 1, y + 1, data);
+			//bresenham_algorithm(x, y, x, y + 2, data);
+			 x++;
+		}
+		y++;
 	}
 }

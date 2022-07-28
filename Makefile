@@ -20,7 +20,6 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(MAKE) -C ./mlx_linux
 	$(MAKE) -C ./libft
-#$(CC) $(FLAGS) -L $(LIBFT) -L $(MLX) -o $@ $^ -lft -lmlx -lXext -lX11 -lm
 	$(CC) $(OBJS) $(LIBFT) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 %.o: %.c
@@ -37,3 +36,7 @@ fclean: clean
 re: fclean all
 
 PHONY: fclean clean all re
+
+#libft and get_next_lineが読み込めなかった部分がいくつかあったけど
+#原因としては、srcsの部分で細かく指定されていなかったのが原因
+#makefileはget_next_lineにないから、でもlibftの方ではあるから、libftで別で指定しないといけない。

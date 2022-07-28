@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 18:59:57 by root              #+#    #+#             */
-/*   Updated: 2022/07/27 15:54:57 by root             ###   ########.fr       */
+/*   Updated: 2022/07/28 23:25:38 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct
 		size_t width;//幅
 		size_t height;//高さ
 		size_t **z_matrix;//z座標
+		int zoom;
 
 		void	*mlx_ptr;
 		void	*win_ptr;
@@ -66,9 +67,9 @@ typedef struct
 
 void	read_file(char *file_name, fdf *data);
 void	fill_matrix(size_t *z_line, char *line);
-//size_t	get_width(char *file_name);
-//size_t	get_height(char *file_name);
-//void	bresenham_algorithm(float x, float y, float x1, float y1, fdf *data);
-void	bresenham_algorithm(int x0, int y0, int x1, int y1, fdf *data);
+void	search_line(int x0, int y0, int x1, int y1, fdf *data);
+void	connect_line(fdf *data);
 
+//不思議なことにsize_tのままにしてしまうとlineは出力されないけど、
+//intにしてあげると出力される。まじで謎謎
 # endif

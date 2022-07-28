@@ -9,18 +9,18 @@ int	deal_key(int key, void *data)
 int     main(int argc, char **argv)
 {
 	fdf	*data;
-	size_t i;
-	size_t j;
 
 	data = (fdf *)malloc(sizeof(fdf));
-	read_file("color.txt", data);
+	read_file(argv[1], data);
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "FDF");
-
-	bresenham_algorithm(0, 0, 600, 200, data);
+	data->zoom = 25;
+	//bresenham_algorithm(0, 0, 600, 300, data);
+	connect_line(data);
 	mlx_key_hook(data->win_ptr, deal_key, NULL);
 	mlx_loop(data->mlx_ptr);
 	
+
  /* 	i = 0; //map
 	while(i < data->height)
 	{
@@ -36,7 +36,6 @@ int     main(int argc, char **argv)
 }
 
 /* #include "fdf.h"
-
 typedef struct    s_data t_data;
 typedef struct    s_data
 {
@@ -46,21 +45,17 @@ typedef struct    s_data
     int        line_length;
     int        endian;
 }    t_data;
-
 void    my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
     char    *dst;
-
     dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
     *(unsigned int*)dst = color;
 }
-
 int    main(int argc, char *argv[])
 {
     void    *mlx;
     void    *mlx_win;
     t_data    img;
-
     mlx = mlx_init();
     mlx_win = mlx_new_window(mlx, 1920, 1080, "fdf");
     img.img = mlx_new_image(mlx, 1920, 1080);

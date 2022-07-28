@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make -C ./mlx_linux
+ 
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,251 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jul 27 15:20:02 2022
+# Make data base, printed on Thu Jul 28 00:25:28 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+WSLENV = VSCODE_WSL_EXT_LOCATION/up
+# default
+.SHELLFLAGS := -c
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /root/github_FDF/mlx_linux
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"ja","availableLanguages":{"*":"ja"},"_languagePackId":"29207410cd77a70b4b25e4878dda93be.ja","_translationsConfigFile":"/root/.vscode-server/data/clp/29207410cd77a70b4b25e4878dda93be.ja/tcf.json","_cacheRoot":"/root/.vscode-server/data/clp/29207410cd77a70b4b25e4878dda93be.ja","_resolvedLanguagePackCoreLocation":"/root/.vscode-server/data/clp/29207410cd77a70b4b25e4878dda93be.ja/3b889b090b5ad5793f524b5d1d39fda662b96a2a","_corruptedFile":"/root/.vscode-server/data/clp/29207410cd77a70b4b25e4878dda93be.ja/corrupted.info","_languagePackSupport":true}
+# environment
+_ = /root/.vscode-server/bin/3b889b090b5ad5793f524b5d1d39fda662b96a2a/node
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# environment
+VSCODE_CWD = /mnt/c/Users/angel/AppData/Local/Programs/Microsoft VS Code
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /root/.vscode-server/bin/3b889b090b5ad5793f524b5d1d39fda662b96a2a/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PowerShell/7/:/mnt/c/Users/angel/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/angel/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
+# environment
+XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-0fb25b39-0b7d-4c6f-b4d4-047e782ebb8c.sock
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :0
+# environment
+PWD = /root/github_FDF
+# default
+.LOADED := 
+# environment
+WSL_INTEROP = /run/WSL/11_interop
+# environment
+PULSE_SERVER = /mnt/wslg/PulseServer
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /root
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# environment
+LOGNAME = root
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+MAKELEVEL := 1
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+SHLVL = 0
+# default
+MAKE_VERSION := 4.2.1
+# environment
+USER = root
+# makefile
+.DEFAULT_GOAL := all
+# environment
+NAME = fdf
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/angel/.vscode/extensions/ms-vscode-remote.remote-wsl-0.66.3
+# default
+MAKE_COMMAND := make
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# makefile
+MAKEFLAGS = pqrRw
+# environment
+MFLAGS = -pqrRw
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+VSCODE_HANDLES_SIGPIPE = true
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# environment
+LC_ALL = C
+# environment
+HOSTTYPE = x86_64
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+WAYLAND_DISPLAY = wayland-0
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# default
+.RECIPEPREFIX := 
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+WSL_DISTRO_NAME = Ubuntu
+# variable set hash-table stats:
+# Load=66/1024=6%, Rehash=0, Collisions=5/96=5%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 2080, inode 144888): 53 files, no impossibilities.
+
+# 53 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+do_configure:
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := do_configure
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := 
+# automatic
+# | := 
+# automatic
+# < := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from 'Makefile', line 17):
+	./configure
+
+all: do_configure
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-14 12:36:38
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+re: clean all
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 20):
+	./configure clean
+
+# files hash-table stats:
+# Load=7/1024=1%, Rehash=0, Collisions=0/23=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 62 / storage = 853 B / avg = 13 B
+# current buf: size = 8162 B / used = 853 B / count = 62 / avg = 13 B
+
+# strcache performance: lookups = 73 / hit rate = 15%
+# hash-table stats:
+# Load=62/8192=1%, Rehash=0, Collisions=1/73=1%
+# Finished Make data base on Thu Jul 28 00:25:28 2022
+
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Thu Jul 28 00:25:28 2022
 
 # Variables
 
@@ -31,13 +277,13 @@ SHELL = /bin/sh
 # makefile (from 'Makefile', line 16)
 RM = rm -f
 # environment
- 
 VSCODE_NLS_CONFIG = {"locale":"ja","availableLanguages":{"*":"ja"},"_languagePackId":"29207410cd77a70b4b25e4878dda93be.ja","_translationsConfigFile":"/root/.vscode-server/data/clp/29207410cd77a70b4b25e4878dda93be.ja/tcf.json","_cacheRoot":"/root/.vscode-server/data/clp/29207410cd77a70b4b25e4878dda93be.ja","_resolvedLanguagePackCoreLocation":"/root/.vscode-server/data/clp/29207410cd77a70b4b25e4878dda93be.ja/3b889b090b5ad5793f524b5d1d39fda662b96a2a","_corruptedFile":"/root/.vscode-server/data/clp/29207410cd77a70b4b25e4878dda93be.ja/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /root/.vscode-server/bin/3b889b090b5ad5793f524b5d1d39fda662b96a2a/node
 # makefile (from 'Makefile', line 13)
 CFLAGS := -Wall -Wextra -Werror
 # makefile (from 'Makefile', line 1)
+ 
 MAKEFILE_LIST :=  Makefile
 # 'override' directive
 GNUMAKEFLAGS := 
@@ -58,7 +304,7 @@ XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-53d49cab-5eab-4c6f-be84-352d2e19b241.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-0fb25b39-0b7d-4c6f-b4d4-047e782ebb8c.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -74,7 +320,7 @@ PWD = /root/github_FDF
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/40_interop
+WSL_INTEROP = /run/WSL/11_interop
 # environment
 PULSE_SERVER = /mnt/wslg/PulseServer
 # environment
@@ -160,7 +406,7 @@ TERM = xterm-256color
 # environment
 WSL_DISTRO_NAME = Ubuntu
 # variable set hash-table stats:
-# Load=74/1024=7%, Rehash=0, Collisions=6/108=6%
+# Load=74/1024=7%, Rehash=0, Collisions=7/116=6%
 
 # Pattern-specific Variable Values
 
@@ -168,14 +414,15 @@ WSL_DISTRO_NAME = Ubuntu
 
 # Directories
 
-# . (device 2080, inode 140277): 18 files, no impossibilities.
+# . (device 2080, inode 140277): 20 files, no impossibilities.
+# get_next_line (device 2080, inode 144883): 6 files, no impossibilities so far.
 
-# 18 files, no impossibilities in 1 directories.
+# 26 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
 %.o: %.c
-#  recipe to execute (from 'Makefile', line 27):
+#  recipe to execute (from 'Makefile', line 26):
 	$(CC) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 # 1 implicit rules, 0 (0.0%) terminal.
@@ -191,20 +438,35 @@ all: fdf
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
+#  File has not been updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/12=0%
 
 # Not a target:
 main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-27 15:17:48.8004992
+#  Last modified 2022-07-28 00:21:00.5340928
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
-get_next_line/get_next_line_utils.o:
+draw.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-28 00:20:10.8640928
+#  File has been updated.
+#  Successfully updated.
+
+get_next_line/get_next_line_utils.o: get_next_line/get_next_line_utils.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'get_next_line/get_next_line_utils'
+#  Last modified 2022-07-28 00:21:08.3240928
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 26):
+	$(CC) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+
+# Not a target:
+.SUFFIXES:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -212,28 +474,41 @@ get_next_line/get_next_line_utils.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-27 15:19:42.9804992
+#  Last modified 2022-07-28 00:24:40.8540928
 #  File has been updated.
 #  Successfully updated.
 
-# Not a target:
-ft_read.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+ft_read.o: ft_read.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'ft_read'
+#  Last modified 2022-07-28 00:21:08.0940928
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 26):
+	$(CC) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 fclean: clean
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 35):
+#  recipe to execute (from 'Makefile', line 34):
 	$(RM) $(NAME) $(LIBFT)
 
 # Not a target:
-get_next_line/get_next_line.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+get_next_line/get_next_line_utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-10 20:55:06
+#  File has been updated.
+#  Successfully updated.
+
+get_next_line/get_next_line.o: get_next_line/get_next_line.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'get_next_line/get_next_line'
+#  Last modified 2022-07-28 00:21:08.2540928
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 26):
+	$(CC) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 # Not a target:
 .DEFAULT:
@@ -250,71 +525,87 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 30):
+#  recipe to execute (from 'Makefile', line 29):
 	make clean -C ./libft
 	make clean -C ./mlx_linux
 	$(RM) $(OBJS)
 
+# Not a target:
+ft_read.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-26 15:31:31.9223508
+#  File has been updated.
+#  Successfully updated.
+
 main.o: main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  File does not exist.
+#  Last modified 2022-07-28 00:21:08.0140928
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := main.o
-# automatic
-# % := 
-# automatic
-# * := main
-# automatic
-# + := main.c
-# automatic
-# | := 
-# automatic
-# < := main.c
-# automatic
-# ^ := main.c
-# automatic
-# ? := main.c
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/14=7%
-#  recipe to execute (from 'Makefile', line 27):
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 26):
+	$(CC) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+
+draw.o: draw.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'draw'
+#  Last modified 2022-07-28 00:21:08.1640928
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 26):
 	$(CC) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 # Not a target:
-draw.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+get_next_line/get_next_line.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-10 20:54:47
+#  File has been updated.
+#  Successfully updated.
 
 fdf: main.o ft_read.o draw.o get_next_line/get_next_line.o get_next_line/get_next_line_utils.o
+ 
 #  Implicit rule search has not been done.
-#  File does not exist.
+#  Implicit/static pattern stem: ''
+#  Last modified 2514-05-30 10:53:03.107374182
 #  File has been updated.
 #  Needs to be updated (-q is set).
+# automatic
+# @ := fdf
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := main.o ft_read.o draw.o get_next_line/get_next_line.o get_next_line/get_next_line_utils.o
+# automatic
+# | := 
+# automatic
+# < := main.o
+# automatic
+# ^ := main.o ft_read.o draw.o get_next_line/get_next_line.o get_next_line/get_next_line_utils.o
+# automatic
+# ? := main.o ft_read.o draw.o get_next_line/get_next_line.o get_next_line/get_next_line_utils.o
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+# Load=8/32=25%, Rehash=0, Collisions=4/20=20%
 #  recipe to execute (from 'Makefile', line 21):
 	$(MAKE) -C ./mlx_linux
 	$(MAKE) -C ./libft
 	$(CC) $(OBJS) $(LIBFT) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 # files hash-table stats:
-# Load=15/1024=1%, Rehash=0, Collisions=0/43=0%
+# Load=19/1024=2%, Rehash=0, Collisions=0/61=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 36 / storage = 315 B / avg = 8 B
-# current buf: size = 8162 B / used = 315 B / count = 36 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 46 / storage = 542 B / avg = 11 B
+# current buf: size = 8162 B / used = 542 B / count = 46 / avg = 11 B
 
-# strcache performance: lookups = 57 / hit rate = 36%
+# strcache performance: lookups = 79 / hit rate = 41%
 # hash-table stats:
- 
-# Load=36/8192=0%, Rehash=0, Collisions=1/57=2%
-# Finished Make data base on Wed Jul 27 15:20:02 2022
+# Load=46/8192=1%, Rehash=0, Collisions=1/79=1%
+# Finished Make data base on Thu Jul 28 00:25:28 2022
 
  
