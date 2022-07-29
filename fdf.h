@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 18:59:57 by root              #+#    #+#             */
-/*   Updated: 2022/07/28 23:25:38 by root             ###   ########.fr       */
+/*   Updated: 2022/07/29 10:37:16 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,18 @@
 
 typedef struct 
 {
-		size_t width;//幅
-		size_t height;//高さ
-		size_t **z_matrix;//z座標
+		int width;//幅
+		int height;//高さ
+		int **z_matrix;//z座標
 		int zoom;
+		int color;
 
 		void	*mlx_ptr;
 		void	*win_ptr;
 }				fdf;
 
 void	read_file(char *file_name, fdf *data);
-void	fill_matrix(size_t *z_line, char *line);
-void	search_line(int x0, int y0, int x1, int y1, fdf *data);
+void	search_line(float x0, float y0, float x1, float y1, fdf *data);
 void	connect_line(fdf *data);
 
 //不思議なことにsize_tのままにしてしまうとlineは出力されないけど、

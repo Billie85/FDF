@@ -1,10 +1,10 @@
 #include "fdf.h"
 
 //get height->最初にマップの高さを調べるよ。
-size_t	get_height(char *file_name)//OK
+int	get_height(char *file_name)//OK
 {
 	int fd;
-	size_t height;
+	int height;
 	
 	fd = open (file_name, O_RDONLY);
 	
@@ -19,13 +19,13 @@ size_t	get_height(char *file_name)//OK
 }
 
 //get_width-> 幅を調べていくよ
-size_t	get_width(char *file_name)
+int	get_width(char *file_name)
 {
 	int	fd;
 	char	*get_line;
 	char	*take_line;
 	char	**split_line;
-	size_t	 width;
+	int	 width;
 
 
 	fd = open (file_name, O_RDONLY);
@@ -44,9 +44,9 @@ size_t	get_width(char *file_name)
 	return (width); //幅の数は->19
 }
 
-void	fill_matrix(size_t *z_line, char *line)
+void	fill_matrix(int *z_line, char *line)
 {
-	size_t 	i;
+	int 	i;
 	char	**split_line;
 
 	split_line = ft_split(line, ' ');
@@ -67,16 +67,16 @@ void	read_file(char *file_name, fdf *data)
 	//2, get the width
 	int fd;
 	char *line;
-	size_t	i;
+	int	i;
 	
 	data->height = get_height(file_name);//高さ
 	data->width = get_width(file_name);//幅
 
-	data->z_matrix = (size_t **)malloc(sizeof(size_t*) * (data->height + 1)); //z軸
+	data->z_matrix = (int **)malloc(sizeof(int*) * (data->height + 1)); //z軸
 	i = 0;
 	while(i <= data->height) //高さの数は10だから10回る。
 	{
-			data->z_matrix[i] = (size_t*)malloc(sizeof(size_t) * (data->width + 1));
+			data->z_matrix[i] = (int*)malloc(sizeof(int) * (data->width + 1));
 			i++;
 	}
 		fd = open (file_name, O_RDONLY);

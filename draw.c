@@ -1,19 +1,43 @@
 #include "fdf.h"
+#define  PI 3.14159265358979323846264338327950288
 
- void	search_line(int x0, int y0, int x1, int y1, fdf *data)
+void	isometric(float *x, float *y, int z)
 {
-	int dx, dy, p, x, y;
+
+	*x = (*x - *y) * cos(0.8);
+	printf("x is %f\n", *x);
+	*y = (*x + *y) * sin(0.8);
+	printf("y is %f\n", *y);
+}
+
+ void	search_line(float x0, float y0, float x1, float y1, fdf *data)
+{
+	float dx, dy, p, x, y;
+	int z;
+	int z1;
+
+	z = data->z_matrix[(int)y0][(int)x0];
+	z1 = data->z_matrix[(int)y1][(int)x1];
+
 //----------zoom----------
 	x0 *= data->zoom;
 	y0 *= data->zoom;
 	x1 *= data->zoom;
 	y1 *= data->zoom;
-
-	dx = x1-x0;
-	dy = y1-y0;
+//----------color----------
+if (z > 0)
+{
+	data->color = 0xe80c0c;
+}
+else
+{
+	data->color = 0xffffff;
+}
+//----------3D----------
+//isometric(&x0, &y0, z);
+//isometric(&x1, &y1, z1);
 
 	x = x0;
-
 	while(x <= x1)
 	{
 		if (x == x0 || x == x1)
@@ -21,11 +45,11 @@
 			y = y0;
 			while(y <= y1)
 			{
-				mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, 0xffffff);
+				mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, data->color);
 				y++;
 			}
 		}
-			else 
+			else
 			{
 				y = y0;
 				if (y == y0 || y == y1)
@@ -33,7 +57,7 @@
 					x = x0;
 					while(x <= x1)
 					{
-						mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, 0xff0000);
+						mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, data->color);
 						x++;
 					}
 				}
@@ -41,7 +65,11 @@
 		x++;
 	}
 
-	/* p = 2 *dy-dx;
+	/* 
+//dx = x1-x0;
+//dy = y1-y0;
+
+	p = 2 *dy-dx;
 
 	while(x <= x1)
 	{
@@ -67,14 +95,16 @@ void	connect_line(fdf *data)
 	int x;
 	int y;
 
-	 y = 0;
-	while(y < data->height)//高さ
+	 y = 1;
+	while(y < data->height)
 	{
-		x = 0;
-		while(x < data->width)//幅
+		x = 1;
+		while(x < data->width)
 		{
-			search_line(x, y, x + 1, y + 1, data);
-			//bresenham_algorithm(x, y, x, y + 2, data);
+			if (x < data->width -1)
+			search_line(x, y, x + 1, y, data);
+			if (y < data->height -1)
+			search_line(x, y, x, y + 1, data);
 			 x++;
 		}
 		y++;
