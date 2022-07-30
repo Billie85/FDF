@@ -1,8 +1,21 @@
 #include "fdf.h"
 
-int	deal_key(int key, void *data)
+int	deal_key(int key, fdf *data)
 {
-	printf("%d", key);
+	printf("%d\n", key);
+
+	//矢印とw d s aも使えるようにしてる。
+	if (key == 119 || key == 65362) //up
+		data->shift_y -= 15;
+	if (key == 100 || key == 65363) //right
+		data->shift_x += 15;
+	if (key == 115 || key == 65364) //down
+		data->shift_y += 15;
+	if (key == 97  || key == 65361) //left
+		data->shift_x -= 15;
+	//if ( key == 65307)//esc
+	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	connect_line(data);
 	return (0);
 }
 
@@ -17,7 +30,7 @@ int     main(int argc, char **argv)
 	data->zoom = 35;
 	//breseham(0, 0, 600, 300, data);
 	connect_line(data);
-	mlx_key_hook(data->win_ptr, deal_key, NULL);
+	mlx_key_hook(data->win_ptr, deal_key, data);
 	mlx_loop(data->mlx_ptr);
 	
 

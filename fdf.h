@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 18:59:57 by root              #+#    #+#             */
-/*   Updated: 2022/07/30 01:40:41 by root             ###   ########.fr       */
+/*   Updated: 2022/07/30 23:32:16 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ typedef struct
 		int **z_matrix;//z座標
 		int zoom;
 		int color;
+		int shift_x;
+		int shift_y;
 
 		void	*mlx_ptr;
 		void	*win_ptr;

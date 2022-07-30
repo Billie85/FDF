@@ -8,6 +8,7 @@
 	*y = (*x + *y) * sin(angle) - z;
 }
 
+//探索法を使うことができるけど、３Dにする時に隙間ができて上手くいかない。
  void	search_line(float x0, float y0, float x1, float y1, fdf *data)
 {
 	float dx, dy, p, x, y;
@@ -110,20 +111,22 @@ void    breseham(float x, float y, float x1, float y1, fdf *data)
 	x1 *= data->zoom;
 	y1 *= data->zoom;
 	//----------color----------
-/* if (z > 0 || z1 > 0)
-	data->color = 0xe80c0c;
+	//ここの部分は直さないといけない。
+	//マスを多く一個とちゃってる
+if (z > 0 || z1 > 0)
+	data->color = 0xA64D79;
 else
-	data->color = 0xffffff; */
-	data->color = (z || z1) ? 0xe80c0c : 0xffffff;
+	data->color = 0xffffff;
+	//data->color = (z || z1) ? 0xe80c0c : 0xffffff;
 
 	//----------3D----------
 	isometric(&x, &y, z);
 	isometric(&x1, &y1, z1);
 	//----------shift----------
-	x += 300;
-	y += 300;
-	x1 += 300;
-	y1 += 300;
+	x += data->shift_x;
+	y += data->shift_y;
+	x1 += data->shift_x;
+	y1 += data->shift_y;
 
 	x_step = x1 - x;
 	y_step = y1 - y;
