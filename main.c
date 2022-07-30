@@ -15,7 +15,7 @@ int     main(int argc, char **argv)
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "FDF");
 	data->zoom = 35;
-	//bresenham_algorithm(0, 0, 600, 300, data);
+	//breseham(0, 0, 600, 300, data);
 	connect_line(data);
 	mlx_key_hook(data->win_ptr, deal_key, NULL);
 	mlx_loop(data->mlx_ptr);

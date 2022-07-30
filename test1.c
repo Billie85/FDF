@@ -1,27 +1,48 @@
+/* # include <stdio.h>
+//大きい方の数を返してあげる。
+# define MAX(a,b) (a > b ? a : b)
 
+//マイナスな値は正の値で返ってくる
+# define MOD(a) ((a < 0) ? -a : a)
 
-/* int main(void)
+int main(void)
 {
-	int i;
-	
-	scanf("%d", &i);
-	i > 0 ? printf("big\n") : printf("small\n");
-	//?マーク便利すぎて最高
-} */
-
-#include <stdio.h> /* printf */
-#include <math.h> /* M_PI */
-
-int main(void) {
-    double degree;
-    double radian;
-
-    degree = 30;
-
-    radian = degree * (M_PI / 180);
-
-    printf("degree:%f\n", degree);
-    printf("radian:%f\n", radian);
+    float a = -100000;
+    float b = -2;
+    float c = -100;
+    int hoge;
+/*     int hoge
     
-    return 0;
+    hoge = MAX(a, b);
+    printf("%d\n", hoge); */
+
+    //hoge = MOD(a);
+    //printf("%d\n", hoge);
+//} */
+
+#include <stdio.h>
+
+int MAX(int a, int b)
+{
+	if (a > b)
+	return (a);
+	else
+	return (b);
+}
+
+int change_plus(int num){
+   if (num > 0)
+      return num;
+   else
+      return -num;
+}
+
+int main(void)
+{
+    int a = -1000;
+    int b = 100;
+    int max;
+
+    max = change_plus(a);
+    printf("%d\n", max);
 }

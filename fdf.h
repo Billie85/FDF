@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 18:59:57 by root              #+#    #+#             */
-/*   Updated: 2022/07/29 10:37:16 by root             ###   ########.fr       */
+/*   Updated: 2022/07/30 01:40:41 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,9 @@ typedef struct
 }				fdf;
 
 void	read_file(char *file_name, fdf *data);
-void	search_line(float x0, float y0, float x1, float y1, fdf *data);
+//void	search_line(float x0, float y0, float x1, float y1, fdf *data);
 void	connect_line(fdf *data);
+void    breseham(float x, float y, float x1, float y1, fdf *data);
 
 //不思議なことにsize_tのままにしてしまうとlineは出力されないけど、
 //intにしてあげると出力される。まじで謎謎
