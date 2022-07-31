@@ -1,5 +1,22 @@
 #include "fdf.h"
 
+int	close_window(int key, fdf *data)
+{
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	return (0);
+}
+
+int mouse_event(int click, fdf *data)
+{
+	printf("%d\n", click);
+
+	if (click == 1)
+		close_window(click, data);
+	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	connect_line(data);
+	return (0);
+}
+
 int	deal_key(int key, fdf *data)
 {
 	printf("%d\n", key);
@@ -13,7 +30,8 @@ int	deal_key(int key, fdf *data)
 		data->shift_y += 15;
 	if (key == 97  || key == 65361) //left
 		data->shift_x -= 15;
-	//if ( key == 65307)//esc
+	if (key == 65307) //esc
+		close_window(key, data);
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	connect_line(data);
 	return (0);
@@ -30,7 +48,9 @@ int     main(int argc, char **argv)
 	data->zoom = 35;
 	//breseham(0, 0, 600, 300, data);
 	connect_line(data);
+	//mlx_hook(data->mlx_win, 33, 1L << 17, close_window, data);
 	mlx_key_hook(data->win_ptr, deal_key, data);
+	//mlx_mouse_hook(data->win_ptr, mouse_event, data);
 	mlx_loop(data->mlx_ptr);
 	
 
@@ -47,33 +67,3 @@ int     main(int argc, char **argv)
 		i++;
 	} */
 }
-
-/* #include "fdf.h"
-typedef struct    s_data t_data;
-typedef struct    s_data
-{
-    void    *img;
-    char    *addr;
-    int        bits_per_pixel;
-    int        line_length;
-    int        endian;
-}    t_data;
-void    my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-    char    *dst;
-    dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-    *(unsigned int*)dst = color;
-}
-int    main(int argc, char *argv[])
-{
-    void    *mlx;
-    void    *mlx_win;
-    t_data    img;
-    mlx = mlx_init();
-    mlx_win = mlx_new_window(mlx, 1920, 1080, "fdf");
-    img.img = mlx_new_image(mlx, 1920, 1080);
-    img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-    my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
-    mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-    mlx_loop(mlx);
-} */
