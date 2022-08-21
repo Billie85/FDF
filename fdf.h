@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 18:59:57 by root              #+#    #+#             */
-/*   Updated: 2022/08/21 19:33:35 by root             ###   ########.fr       */
+/*   Updated: 2022/08/21 22:25:00 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,8 @@ typedef struct
 		int color;
 		int shift_x;
 		int shift_y;
-
 		void	*mlx_ptr;
-		void	*win_ptr;
+		void	*window;
 }				fdf;
 
 void	read_file(char *file_name, fdf *data);
@@ -47,6 +46,7 @@ void    breseham(float x, float y, float x1, float y1, fdf *data);
 void	isometric(float *x, float *y, int z);
 int		find_max_num(int a, int b);
 int		change_sign(int num);
+void	map_data_init(fdf *data);
 
 //size_tのままにしてしまうとlineは出力されないけど、
 //intにしてあげると出力される。

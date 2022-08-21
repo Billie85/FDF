@@ -66,7 +66,7 @@ else
 	while((int)(x - x1) || (int)(y - y1))
 	{
 		///最後の部分をdata->colorに替えてあげないと色はつかない...
-		mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, data->color);
+		mlx_pixel_put(data->mlx_ptr, data->window, x, y, data->color);
 		x += x_step;
 		y += y_step;
 	}

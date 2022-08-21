@@ -1,29 +1,21 @@
 #include "../fdf.h"
 
-int	close_window(fdf *data)
+int destroy_window(fdf *data)
 {
-	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-	mlx_destroy_display(data->mlx_ptr);
-	//connect_line(data);
+	mlx_destroy_window(data->mlx_ptr, data->window);
+	exit(0);
 	return (0);
 }
 
-/* int mouse_event(int click, fdf *data)
+int	close_window(fdf *data)
 {
-	printf("%d\n", click);
-
-	if (click == 1)
-		close_window(click, data);
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
-	connect_line(data);
+	mlx_destroy_window(data->mlx_ptr, data->window);
+	exit(0);
 	return (0);
-} */
+}
 
 int	deal_key(int key, fdf *data)
 {
-	printf("%d\n", key);
-
-	//矢印とw d s aも使えるようにしてる。
 	if (key == 119 || key == 65362) //up
 		data->shift_y -= 15;
 	if (key == 100 || key == 65363) //right
@@ -32,10 +24,11 @@ int	deal_key(int key, fdf *data)
 		data->shift_y += 15;
 	if (key == 97  || key == 65361) //left
 		data->shift_x -= 15;
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	mlx_clear_window(data->mlx_ptr, data->window);
 	connect_line(data);
 	return (0);
 }
+
 
 int	MLX_ERROR(fdf *data)
 {
@@ -51,13 +44,13 @@ int	main(int argc, char **argv)
 	data->mlx_ptr = mlx_init();//初期化をしてあげてる。
 	if (data->mlx_ptr == NULL)
 		return (MLX_ERROR);
-	data->win_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "FDF");//windowも作成
-	data->zoom = 35;
-	//breseham(0, 0, 600, 300, data);
-	connect_line(data);
+		map_data_init(data);
+		connect_line(data);
+	mlx_key_hook(data->window, deal_key, data);
+	mlx_hook(data->window, 17, 0, destroy_window, data);
+	
 	//mlx_hook(data->mlx_ptr, 3, 1L << 1, close_window, data);
-	mlx_key_hook(data->win_ptr, deal_key, data);
-	//mlx_mouse_hook(data->win_ptr, mouse_event, data);
+	//mlx_mouse_hook(data->window, mouse_event, data);
 	mlx_loop(data->mlx_ptr);
  /* 	i = 0; //map
 	while(i < data->height)
