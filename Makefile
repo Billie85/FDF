@@ -1,6 +1,6 @@
 NAME		= fdf
 
-SRCS		= main.c ft_read.c draw.c ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c
+SRCS		= ./srcs/draw.c ./srcs/ft_read.c  ./srcs/main.c ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c
 
 OBJS		= $(SRCS:%.c=%.o)
 

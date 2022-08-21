@@ -1,4 +1,4 @@
-#include "fdf.h"
+#include "../fdf.h"
 
 int	close_window(fdf *data)
 {
@@ -19,7 +19,7 @@ int	close_window(fdf *data)
 	return (0);
 } */
 
-/* int	deal_key(int key, fdf *data)
+int	deal_key(int key, fdf *data)
 {
 	printf("%d\n", key);
 
@@ -32,37 +32,33 @@ int	close_window(fdf *data)
 		data->shift_y += 15;
 	if (key == 97  || key == 65361) //left
 		data->shift_x -= 15;
-	if (key == 65307) //esc
-		close_window(key, data);
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	connect_line(data);
 	return (0);
-} */
+}
 
-int MLX_ERROR(fdf *data)
+int	MLX_ERROR(fdf *data)
 {
 	free(data);
 }
 
-int     main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	fdf	*data;
-
+	
 	data = (fdf *)malloc(sizeof(fdf));
 	read_file(argv[1], data);
-	data->mlx_ptr = mlx_init();
-	if(data->mlx_ptr == NULL)
+	data->mlx_ptr = mlx_init();//初期化をしてあげてる。
+	if (data->mlx_ptr == NULL)
 		return (MLX_ERROR);
-	data->win_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "FDF");
+	data->win_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "FDF");//windowも作成
 	data->zoom = 35;
 	//breseham(0, 0, 600, 300, data);
 	connect_line(data);
-	mlx_hook(data->mlx_ptr, 3, 1L << 1, close_window, data);
-	//mlx_key_hook(data->win_ptr, deal_key, data);
+	//mlx_hook(data->mlx_ptr, 3, 1L << 1, close_window, data);
+	mlx_key_hook(data->win_ptr, deal_key, data);
 	//mlx_mouse_hook(data->win_ptr, mouse_event, data);
 	mlx_loop(data->mlx_ptr);
-	
-
  /* 	i = 0; //map
 	while(i < data->height)
 	{

@@ -1,10 +1,8 @@
 /* # include <stdio.h>
 //大きい方の数を返してあげる。
 # define MAX(a,b) (a > b ? a : b)
-
 //マイナスな値は正の値で返ってくる
 # define MOD(a) ((a < 0) ? -a : a)
-
 int main(void)
 {
     float a = -100000;

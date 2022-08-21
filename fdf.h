@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 18:59:57 by root              #+#    #+#             */
-/*   Updated: 2022/07/30 23:32:16 by root             ###   ########.fr       */
+/*   Updated: 2022/08/21 19:33:35 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,33 +27,6 @@
 # include <stdint.h>
 # include <math.h>
 
-/* **  ------------------------------- resourses --------------------------------
-**	--------------- 3D ------------------------------------------
-**		x` = (x - y) * cos(angle);
-**		y` = (x + y) * sin(angle) - z;
-**	-------------------------------------------------------------
-** 	------- mlx_function ----------------------------------------
-**		void *mlx_ptr;
-**		void *win_prt;
-**
-**		mlx_ptr = mlx_init();
-**		win_prt = mlx_new_window(mlx_ptr, 1000, 1000, "FDF");
-**
-**		mlx_pixel_put(mlx_ptr, win_ptr, (int)x, (int)y, #color);
-**
-**		mlx_key_hook(win_ptr, deal_key, NULL);
-**		mlx_loop(mlx_ptr);
-**	--------------------------------------------------------------
-**	------- deal_key prototype -----------------------------------
-**		int		deal_key(int key, void *data);
-**	--------------------------------------------------------------
-**	colors:
-**		white = 0xffffff
-**		red = 0xe80c0c
-**	----------------------------
-**	frameworks:
-**		-framework OpenGL -framework AppKit */
-
 typedef struct 
 {
 		int width;//幅
@@ -69,10 +42,12 @@ typedef struct
 }				fdf;
 
 void	read_file(char *file_name, fdf *data);
-//void	search_line(float x0, float y0, float x1, float y1, fdf *data);
 void	connect_line(fdf *data);
 void    breseham(float x, float y, float x1, float y1, fdf *data);
+void	isometric(float *x, float *y, int z);
+int		find_max_num(int a, int b);
+int		change_sign(int num);
 
-//不思議なことにsize_tのままにしてしまうとlineは出力されないけど、
-//intにしてあげると出力される。まじで謎謎
+//size_tのままにしてしまうとlineは出力されないけど、
+//intにしてあげると出力される。
 # endif

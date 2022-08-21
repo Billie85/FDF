@@ -1,4 +1,4 @@
-#include "fdf.h"
+#include "../fdf.h"
 
 //get height->最初にマップの高さを調べるよ。
 int	get_height(char *file_name)//OK
