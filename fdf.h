@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/02 18:59:57 by root              #+#    #+#             */
-/*   Updated: 2022/08/21 22:25:00 by root             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef FDF_H
 # define FDF_H
 
@@ -38,6 +26,9 @@ typedef struct
 		int shift_y;
 		void	*mlx_ptr;
 		void	*window;
+		int		win_x;
+		int		win_y;
+		void	*win_ptr;
 }				fdf;
 
 void	read_file(char *file_name, fdf *data);

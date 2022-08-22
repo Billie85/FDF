@@ -7,13 +7,6 @@ int destroy_window(fdf *data)
 	return (0);
 }
 
-int	close_window(fdf *data)
-{
-	mlx_destroy_window(data->mlx_ptr, data->window);
-	exit(0);
-	return (0);
-}
-
 int	deal_key(int key, fdf *data)
 {
 	if (key == 119 || key == 65362) //up
@@ -29,21 +22,12 @@ int	deal_key(int key, fdf *data)
 	return (0);
 }
 
-
-int	MLX_ERROR(fdf *data)
-{
-	free(data);
-}
-
 int	main(int argc, char **argv)
 {
 	fdf	*data;
 	
 	data = (fdf *)malloc(sizeof(fdf));
 	read_file(argv[1], data);
-	data->mlx_ptr = mlx_init();//初期化をしてあげてる。
-	if (data->mlx_ptr == NULL)
-		return (MLX_ERROR);
 		map_data_init(data);
 		connect_line(data);
 	mlx_key_hook(data->window, deal_key, data);

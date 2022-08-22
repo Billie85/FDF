@@ -25,11 +25,12 @@ int	change_sign(int num){
 
 void    breseham(float x, float y, float x1, float y1, fdf *data)
 {
+	float z;
+	float z1;
 	float x_step;
 	float y_step;
 	int max;
-	int z;
-	int z1;
+	int color;
 
 	z = data->z_matrix[(int)y][(int)x];
 	z1 = data->z_matrix[(int)y1][(int)x1];
@@ -42,10 +43,10 @@ void    breseham(float x, float y, float x1, float y1, fdf *data)
 	//----------color----------
 	//ここの部分は直さないといけない。
 	//マスを多く一個とちゃってる
-if (z > 0 || z1 > 0)
+/* if (z > 0 || z1 > 0)
 	data->color = 0xA64D79;
 else
-	data->color = 0xffffff;
+	data->color = 0xffffff; */
 	//data->color = (z || z1) ? 0xe80c0c : 0xffffff;
 
 	//----------3D----------
@@ -59,10 +60,30 @@ else
 
 	x_step = x1 - x;
 	y_step = y1 - y;
-	//斜めの部分を見つける。
 	max = find_max_num(change_sign(x_step), change_sign(y_step));
 	x_step /= max;
 	y_step /= max;
+
+	//color = (z || z1) ? 0xfc0345 : 0xBBFAFF;
+	//color = (z != z1) ? 0xfc031c : color;
+
+	if (z > 0 || z1 > 0)
+		color = 0xfc0345;
+	else
+		color = 0xBBFAFF;
+	if (z > 0 != z1 > 0)
+		color = 0xfc031c;
+	else
+		color = color;
+	while ((int)(x - x1) || (int)(y - y1))
+	{
+		mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, color);
+		x += x_step;
+		y += y_step;
+		if (x > data->win_x || y > data->win_y || y < 0 || x < 0)
+			break ;
+	}
+
 	while((int)(x - x1) || (int)(y - y1))
 	{
 		///最後の部分をdata->colorに替えてあげないと色はつかない...
