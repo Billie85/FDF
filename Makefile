@@ -1,6 +1,6 @@
 NAME		= fdf
 
-SRCS		= ./srcs/map_data_init.c ./srcs/draw.c ./srcs/ft_read.c  ./srcs/main.c ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c
+SRCS		= ./srcs/init_struct.c ./srcs/draw.c ./srcs/ft_read.c  ./srcs/main.c ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c
 
 OBJS		= $(SRCS:%.c=%.o)
 

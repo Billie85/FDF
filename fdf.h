@@ -31,13 +31,13 @@ typedef struct
 		void	*win_ptr;
 }				fdf;
 
-void	read_file(char *file_name, fdf *data);
+void	read_map(char *file_name, fdf *data);
 void	connect_line(fdf *data);
 void    breseham(float x, float y, float x1, float y1, fdf *data);
 void	isometric(float *x, float *y, int z);
 int		find_max_num(int a, int b);
 int		change_sign(int num);
-void	map_data_init(fdf *data);
+void	init_struct(fdf *data);
 
 //size_tのままにしてしまうとlineは出力されないけど、
 //intにしてあげると出力される。

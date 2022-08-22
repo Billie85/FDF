@@ -61,7 +61,7 @@ void	fill_matrix(int *z_line, char *line)
 }
 
 //file_nameの中にはmainの方で最初に読み込んだファイルが入ってるよ。
-void	read_file(char *file_name, fdf *data)
+void	read_map(char *file_name, fdf *data)
 {
 	//1, get the height;
 	//2, get the width

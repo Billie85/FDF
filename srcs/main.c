@@ -26,26 +26,13 @@ int	main(int argc, char **argv)
 {
 	fdf	*data;
 	
+	if (argc != 2)
+		exit(1);
 	data = (fdf *)malloc(sizeof(fdf));
-	read_file(argv[1], data);
-		map_data_init(data);
-		connect_line(data);
+	read_map(argv[1], data);
+	init_struct(data);
+	connect_line(data);
 	mlx_key_hook(data->window, deal_key, data);
 	mlx_hook(data->window, 17, 0, destroy_window, data);
-	
-	//mlx_hook(data->mlx_ptr, 3, 1L << 1, close_window, data);
-	//mlx_mouse_hook(data->window, mouse_event, data);
 	mlx_loop(data->mlx_ptr);
- /* 	i = 0; //map
-	while(i < data->height)
-	{
-		j = 0;
-		while(j < data->width)
-		{
-			printf("%3ld", data->z_matrix[i][j]);
-			j++;
-		}
-		printf("\n");
-		i++;
-	} */
 }

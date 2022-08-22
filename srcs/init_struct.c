@@ -1,6 +1,6 @@
 #include "../fdf.h"
 
-void	map_data_init(fdf *data)
+void	init_struct(fdf *data)
 {
 	data->zoom = 35;
 	data->win_x = 2000;

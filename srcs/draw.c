@@ -67,14 +67,16 @@ else
 	//color = (z || z1) ? 0xfc0345 : 0xBBFAFF;
 	//color = (z != z1) ? 0xfc031c : color;
 
-	if (z > 0 || z1 > 0)
-		color = 0xfc0345;
+/* 	if (z > 0 || z1 > 0)
+		color = 0xffffff;
 	else
-		color = 0xBBFAFF;
+		color = 0xfc0345; */
+		
 	if (z > 0 != z1 > 0)
-		color = 0xfc031c;
+		color = 0xfc0345;//平らな部分の支えとなる柱みたいな（高さ）
 	else
-		color = color;
+		color = 0xBBFAFF;//平らな部分
+
 	while ((int)(x - x1) || (int)(y - y1))
 	{
 		mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, color);
