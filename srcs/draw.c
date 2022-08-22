@@ -95,7 +95,7 @@ else
 	}
 }
 
-void	connect_line(fdf *data)
+void	draw_map(fdf *data)
 {
 	int x;
 	int y;

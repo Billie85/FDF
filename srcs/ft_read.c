@@ -10,10 +10,7 @@ int	get_height(char *file_name)//OK
 	
 	height = 0;
 	while(get_next_line(fd) != NULL)
-	{
 		height++;
-		//printf("%ld\n", height); //10
-	}
 	close(fd);
 	return (height);
 }
@@ -35,7 +32,6 @@ int	get_width(char *file_name)
 		split_line = ft_split(take_line, ' ');
 		width = 0;
 		while (split_line[width] != NULL)
-			//printf("%s", split_line[width]);
 			width++;
 		free(take_line);
 		take_line = get_next_line(fd);
@@ -73,13 +69,15 @@ void	read_map(char *file_name, fdf *data)
 	data->width = get_width(file_name);//幅
 
 	data->z_matrix = (int **)malloc(sizeof(int*) * (data->height + 1)); //z軸
+	if (data->z_matrix == NULL)
+		exit(1);
 	i = 0;
 	while(i <= data->height) //高さの数は10だから10回る。
 	{
 			data->z_matrix[i] = (int*)malloc(sizeof(int) * (data->width + 1));
 			i++;
 	}
-		fd = open (file_name, O_RDONLY);
+		fd = open(file_name, O_RDONLY);
 		line = get_next_line(fd);
 		i = 0;
 		while (line != NULL)

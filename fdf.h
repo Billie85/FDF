@@ -32,7 +32,7 @@ typedef struct
 }				fdf;
 
 void	read_map(char *file_name, fdf *data);
-void	connect_line(fdf *data);
+void	draw_map(fdf *data);
 void    breseham(float x, float y, float x1, float y1, fdf *data);
 void	isometric(float *x, float *y, int z);
 int		find_max_num(int a, int b);

@@ -18,7 +18,7 @@ int	deal_key(int key, fdf *data)
 	if (key == 97  || key == 65361) //left
 		data->shift_x -= 15;
 	mlx_clear_window(data->mlx_ptr, data->window);
-	connect_line(data);
+	draw_map(data);
 	return (0);
 }
 
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 		exit(1);
 	init_struct(data);
 	read_map(argv[1], data);
-	connect_line(data);
+	draw_map(data);
 	mlx_key_hook(data->window, deal_key, data);
 	mlx_hook(data->window, 17, 0, destroy_window, data);
 	mlx_loop(data->mlx_ptr);
