@@ -29,8 +29,10 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		exit(1);
 	data = (fdf *)malloc(sizeof(fdf));
-	read_map(argv[1], data);
+	if (data == NULL)
+		exit(1);
 	init_struct(data);
+	read_map(argv[1], data);
 	connect_line(data);
 	mlx_key_hook(data->window, deal_key, data);
 	mlx_hook(data->window, 17, 0, destroy_window, data);
