@@ -72,3 +72,16 @@ y1 += 300;
 			}
 		x++;
 	} */
+
+		//color = (z || z1) ? 0xfc0345 : 0xBBFAFF;
+	//color = (z != z1) ? 0xfc031c : color;
+
+/* 	if (z > 0 || z1 > 0)
+		color = 0xffffff;
+	else
+		color = 0xfc0345; */
+		
+/* 	if (dot->z > 0 != dot->z1 > 0)
+		color = 0xfc0345;//平らな部分の支えとなる柱みたいな（高さ）
+	else
+		color = 0xBBFAFF;//平らな部分 */

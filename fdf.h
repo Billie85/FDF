@@ -1,5 +1,8 @@
 #ifndef FDF_H
 # define FDF_H
+# define ANGLE         0.52359877
+# define X_VER 0
+ # define Y_VER 1
 
 #include "get_next_line/get_next_line.h"
 #include "mlx_linux/mlx.h"
@@ -14,6 +17,18 @@
 # include <string.h>
 # include <stdint.h>
 # include <math.h>
+
+//draw inside the image.
+typedef struct s_axle
+{
+	float	x;
+	float	x1;
+	float	y;
+	float	y1;
+	float	z;
+	float	z1;
+	int		color;
+}			t_axle;
 
 typedef struct 
 {
@@ -32,12 +47,13 @@ typedef struct
 		char	*map_path;
 }				fdf;
 
+void	fill_matrix(int *z_line, char *line);
+int		get_width(char *file_name);
+int		get_height(char *file_name);
 void	read_map(fdf **data);
-void	draw_map(fdf *data);
-void    breseham(float x, float y, float x1, float y1, fdf *data);
-void	isometric(float *x, float *y, int z);
-int		find_max_num(int a, int b);
-int		change_sign(int num);
+void	draw_wireframe(fdf **data);
+void    breseham(t_axle *inside, fdf *data);
+void	isometric(float *x, float *y, float *z);
 void	init_struct(fdf *data);
 
 //size_tのままにしてしまうとlineは出力されないけど、

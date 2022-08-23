@@ -1,6 +1,15 @@
 NAME		= fdf
 
-SRCS		= ./srcs/init_struct.c ./srcs/draw.c ./srcs/ft_read.c  ./srcs/main.c ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c
+SRCS		=	./srcs/init_struct.c \
+				./srcs/isometric.c \
+				./srcs/draw.c \
+				./srcs/fill_matrix.c \
+				./srcs/get_width.c \
+				./srcs/get_height.c \
+				./srcs/ft_read.c \
+				./srcs/main.c \
+				./get_next_line/get_next_line.c \
+				./get_next_line/get_next_line_utils.c
 
 OBJS		= $(SRCS:%.c=%.o)
 
