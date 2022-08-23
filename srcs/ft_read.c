@@ -57,7 +57,7 @@ void	fill_matrix(int *z_line, char *line)
 }
 
 //file_nameの中にはmainの方で最初に読み込んだファイルが入ってるよ。
-void	read_map(char *file_name, fdf *data)
+void	read_map(fdf **data)
 {
 	//1, get the height;
 	//2, get the width
@@ -65,30 +65,30 @@ void	read_map(char *file_name, fdf *data)
 	char *line;
 	int	i;
 	
-	data->height = get_height(file_name);//高さ
-	data->width = get_width(file_name);//幅
+	(*data)->height = get_height((*data)->map_path);//高さ
+	(*data)->width = get_width((*data)->map_path);//幅
 
-	data->z_matrix = (int **)malloc(sizeof(int*) * (data->height + 1)); //z軸
-	if (data->z_matrix == NULL)
+	(*data)->z_matrix = (int **)malloc(sizeof(int*) * ((*data)->height + 1)); //z軸
+	if ((*data)->z_matrix == NULL)
 		exit(1);
 	i = 0;
-	while(i <= data->height) //高さの数は10だから10回る。
+	while(i <= (*data)->height) //高さの数は10だから10回る。
 	{
-			data->z_matrix[i] = (int*)malloc(sizeof(int) * (data->width + 1));
+			(*data)->z_matrix[i] = (int*)malloc(sizeof(int) * ((*data)->width + 1));
 			i++;
 	}
-		fd = open(file_name, O_RDONLY);
+		fd = open((*data)->map_path, O_RDONLY);
 		line = get_next_line(fd);
 		i = 0;
 		while (line != NULL)
 		{
-			fill_matrix(data->z_matrix[i], line);
+			fill_matrix((*data)->z_matrix[i], line);
 			free(line);
 			line = get_next_line(fd);
 			i++;
 		}
 		close(fd);
-		data->z_matrix[i] = NULL;
+		(*data)->z_matrix[i] = NULL;
 //intの形で高さの情報を収納する行列を作って
 //高さの数字を書き込んでいく
 }

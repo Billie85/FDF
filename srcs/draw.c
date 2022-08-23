@@ -85,14 +85,6 @@ else
 		if (x > data->win_x || y > data->win_y || y < 0 || x < 0)
 			break ;
 	}
-
-	while((int)(x - x1) || (int)(y - y1))
-	{
-		///最後の部分をdata->colorに替えてあげないと色はつかない...
-		mlx_pixel_put(data->mlx_ptr, data->window, x, y, data->color);
-		x += x_step;
-		y += y_step;
-	}
 }
 
 void	draw_map(fdf *data)

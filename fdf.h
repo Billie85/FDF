@@ -29,9 +29,10 @@ typedef struct
 		int		win_x;
 		int		win_y;
 		void	*win_ptr;
+		char	*map_path;
 }				fdf;
 
-void	read_map(char *file_name, fdf *data);
+void	read_map(fdf **data);
 void	draw_map(fdf *data);
 void    breseham(float x, float y, float x1, float y1, fdf *data);
 void	isometric(float *x, float *y, int z);

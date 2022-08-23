@@ -22,7 +22,7 @@ int	deal_key(int key, fdf *data)
 	return (0);
 }
 
-int	main(int argc, char **argv)
+int	main(int argc, char *argv[])
 {
 	fdf	*data;
 	
@@ -31,8 +31,9 @@ int	main(int argc, char **argv)
 	data = (fdf *)malloc(sizeof(fdf));
 	if (data == NULL)
 		exit(1);
+	data ->map_path = argv[1];
 	init_struct(data);
-	read_map(argv[1], data);
+	read_map(&data);
 	draw_map(data);
 	mlx_key_hook(data->window, deal_key, data);
 	mlx_hook(data->window, 17, 0, destroy_window, data);
