@@ -1,13 +1,15 @@
 NAME		= fdf
 
-SRCS		=	./srcs/init_struct.c \
-				./srcs/isometric.c \
+SRCS		=	./srcs/isometric.c \
 				./srcs/draw.c \
 				./srcs/fill_matrix.c \
 				./srcs/get_width.c \
 				./srcs/get_height.c \
 				./srcs/ft_read.c \
 				./srcs/main.c \
+				./srcs/keys.c \
+				./srcs/window.c \
+				./srcs/flat_part.c \
 				./get_next_line/get_next_line.c \
 				./get_next_line/get_next_line_utils.c
 

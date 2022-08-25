@@ -1,12 +1,25 @@
 #include "../fdf.h"
 
-/* void	isometric(float *x, float *y, int z)
+void		help(fdf *data)
 {
-	float angle;
-	angle = 0.8;// π／６ isometricの定義
-	*x = (*x - *y) * cos(angle);
-	*y = (*x + *y) * sin(angle) - z;
-} */
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 10, 0x247d58,
+	"To change scale use + or - ");
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 30, 0x247d58,
+	"To change altitude use Q or W");
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 50, 0x247d58,
+	"To move use arrow buttons");
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 70, 0x247d58,
+	"To change colors use R G B or C");
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 90, 0x247d58,
+	"To change type of projection use Z or X");
+}
+
+void	color(fdf *data)
+{
+	data->axle.color = ( data->axle.z != 0 ||  data->axle.z1 != 0) ?
+	data->axle.old_color +  data->axle.z * 6 : 0xffffff;
+}
+
 
 static float	find_max_num(float a, float b)
 {
@@ -23,93 +36,67 @@ static float	change_sign(float num){
       return -num;
 }
 
-void    breseham(t_axle *map_inside, fdf *data)
+void	init_xyz(fdf *data)
 {
-	printf("aaaaaaaaaaa\n");
+	data->axle.z = data->z_matrix[(int)data->axle.y_f][(int)data->axle.x_f] * data->axle.altitude;
+	data->axle.z1 = data->z_matrix[(int)data->axle.y1_f][(int)data->axle.x1_f] * data->axle.altitude;
+	data->axle.x = data->axle.x_f;
+	data->axle.x1 = data->axle.x1_f;
+	data->axle.y = data->axle.y_f;
+	data->axle.y1 = data->axle.y1_f;
+}
 
+void    breseham(fdf *data)
+{
 	float x_step;
 	float y_step;
 	float max;
 
-	map_inside->z = (float)data->z_matrix[(int)map_inside->y][(int)map_inside->x];
-	map_inside->z1 = (float)data->z_matrix[(int)map_inside->y1][(int)map_inside->x1];
-
-	//----------zoom----------
-	map_inside->x *= data->zoom;
-	map_inside->y *= data->zoom;
-	map_inside->x1 *= data->zoom;
-	map_inside->y1 *= data->zoom;
-	//----------color----------
-	//ここにマップからの色を取ってくる！
-	//----------3D----------
-	isometric(&map_inside->x, &map_inside->y, &map_inside->z);
-	isometric(&map_inside->x1, &map_inside->y1, &map_inside->z1);
-	//----------shift----------
-	map_inside->x += data->shift_x;
-	map_inside->y += data->shift_y;
-	map_inside->x1 += data->shift_x;
-	map_inside->y1 += data->shift_y;
-
-	x_step = map_inside->x1 - map_inside->x;
-	y_step = map_inside->y1 - map_inside->y;
+	init_xyz(data);
+	color(data);
+	if(data->axle.view == 7)
+	 	isometric(data);
+		else
+		flat_part(data);
+	//-----------------------------
+	x_step = data->axle.x1 - data->axle.x;
+	y_step = data->axle.y1 - data->axle.y;
+	//---------------------------------------------------------------
 	max = find_max_num(change_sign(x_step), change_sign(y_step));
 	x_step /= max;
 	y_step /= max;
-	while ((int)(map_inside->x - map_inside->x1) || (int)(map_inside->y - map_inside->y1))
+	while ((int)(data->axle.x - data->axle.x1) || (int)(data->axle.y - data->axle.y1))
 	{
-		mlx_pixel_put(data->mlx_ptr, data->win_ptr, map_inside->x, map_inside->y, map_inside->color);
-		map_inside->x += x_step;
-		map_inside->y += y_step;
+		mlx_pixel_put(data->mlx_ptr, data->win_ptr, data->axle.x, data->axle.y, data->axle.color);
+		data->axle.x += x_step;
+		data->axle.y += y_step;
 	}
 }
 
-static void check_x_y(int x, int y, t_axle *map_inside, fdf *data, int check)
+void	draw_wireframe(fdf *data)
 {
-	if (check == X_VER)
-	{
-		map_inside->x = x;
-		map_inside->x1 = x + 1;
-		map_inside->y = y;
-		map_inside->y1 = y;
-	}
-	if (check == Y_VER)
-	{
-		map_inside->x = x;
-		map_inside->x1 = x;
-		map_inside->y = y;
-		map_inside->y1 = y + 1;
-	}
-}
+	help(data);
+	 data->axle.y_f = 0;
 
-void	draw_wireframe(fdf **data)
-{
-	printf("in the function draw_wireframe\n");
-	int x;
-	int y;
-	t_axle *map_inside;//ここで新しい構造体入る！
-	map_inside = (t_axle *) malloc(sizeof(t_axle));
-	map_inside->z = 0;
-	map_inside->z1 = 0;
-	
-	 y = 0;
-	while(y < (*data)->height)
+	while (data->axle.y_f < data->map_height)
 	{
-		printf("----in while draw_wireframe----\n");
-		x = 0;
-		while(x < (*data)->width)
+		data->axle.x_f = 0;
+		while(data->axle.x_f < data->map_width)
 		{
-			if (x < (*data)->width -1)
+			if (data->axle.x_f < data->map_width -1)
 			{
-				check_x_y(x, y, map_inside, *data, X_VER);
-				breseham(map_inside, (*data));
+				data->axle.x1_f = data->axle.x_f + 1;
+				data->axle.y1_f = data->axle.y_f;
+				breseham(data);
 			}
-			if (y < (*data)->height -1)
+			if (data->axle.y_f < data->map_height -1)
 			{
-				check_x_y(x, y, map_inside, *data, Y_VER);
-				breseham(map_inside, (*data));
+				data->axle.x1_f = data->axle.x_f;
+				data->axle.y1_f = data->axle.y_f + 1;
+				breseham(data);
 			}
-			x++;
+			data->axle.x_f++;
 		}
-		y++;
+		data->axle.y_f++;
 	}
 }

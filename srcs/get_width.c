@@ -1,25 +1,23 @@
 #include "../fdf.h"
 
-int	get_width(char *file_name)
+int	get_width(fdf *data)
 {
-	int	fd;
-	char	*get_line;
 	char	*take_line;
 	char	**split_line;
-	int	 width;
+	
+	data->map_width = 0;
 
-
-	fd = open (file_name, O_RDONLY);
-	take_line = get_next_line(fd);
+	data->map_fd = open(data->file_name, O_RDONLY);
+	take_line = get_next_line(data->map_fd);
 	while (take_line != NULL)
 	{
 		split_line = ft_split(take_line, ' ');
-		width = 0;
-		while (split_line[width] != NULL)
-			width++;
-		free(take_line);
-		take_line = get_next_line(fd);
+
+		while (split_line[data->map_width] != NULL)
+			data->map_width++;
+			free(take_line);
+		take_line = get_next_line(data->map_fd);
 	}
-	close(fd);
-	return (width); //幅の数は->19
+	close(data->map_fd);
+	return (data->map_width); //幅の数は->19
 }
