@@ -12,7 +12,12 @@ int		main(int argc, char **argv)
 	fdf		*data;
 
 	if (argc != 2)
+	{
+		(void)ANSI_COLOR_ORANGE;
+		ft_printf("Choose a map:)\n");
+		(void)BACK_COLOR;
 		return (0);
+	}
 	data = (fdf *)malloc(sizeof(fdf));
 	data->file_name = argv[1];
 	read_map(data);

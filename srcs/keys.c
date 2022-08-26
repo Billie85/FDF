@@ -3,25 +3,25 @@
 static void color_key(int key, fdf *data)
 {
 	if (key == 49)
-		data->axle.old_color = 0x33ff00; //green
+		data->axle.color = 0x33ff00; //green
 	if (key == 50)
-		data->axle.old_color = 0xFF00D0; //pink
+		data->axle.color = 0xFF00D0; //pink
 	if (key == 51)
-		data->axle.old_color = 0x664200; //orange
+		data->axle.color = 0x664200; //orange
 	if (key == 52)
-		data->axle.old_color = 0x009999; //blue
+		data->axle.color = 0x009999; //blue
 	if (key == 53)
-		data->axle.old_color = 0x8C00FF; //purple
+		data->axle.color = 0x8C00FF; //purple
 	if (key == 54)
-		data->axle.old_color = 0x700C0B;
+		data->axle.color = 0x700C0B;
 	if (key == 55)
-		data->axle.old_color = 0xEF6E6E;
+		data->axle.color = 0xEF6E6E;
 	if (key == 56)
-		data->axle.old_color = 0xFFA400;
+		data->axle.color = 0xFFA400;
 	if (key == 57)
-		data->axle.old_color = 0xB9DD64;
+		data->axle.color = 0xB9DD64;
 	if (key == 58)
-		data->axle.old_color = 0xF4D500;
+		data->axle.color = 0xF4D500;
 }
 
 static void view_key(int key, fdf *data)

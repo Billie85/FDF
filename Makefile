@@ -1,4 +1,5 @@
 NAME		= fdf
+PRINTF		= ./ft_printf/libftprintf.a
 
 SRCS		=	./srcs/isometric.c \
 				./srcs/draw.c \
@@ -11,7 +12,7 @@ SRCS		=	./srcs/isometric.c \
 				./srcs/window.c \
 				./srcs/flat_part.c \
 				./get_next_line/get_next_line.c \
-				./get_next_line/get_next_line_utils.c
+				./get_next_line/get_next_line_utils.c \
 
 OBJS		= $(SRCS:%.c=%.o)
 
@@ -31,7 +32,8 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(MAKE) -C ./mlx_linux
 	$(MAKE) -C ./libft
-	$(CC) $(OBJS) $(LIBFT) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	$(MAKE) -C ./ft_printf
+	$(CC) $(OBJS) $(LIBFT) $(PRINTF) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 %.o: %.c
 	$(CC) -I/usr/include -Imlx_linux -O3 -c $< -o $@
@@ -42,7 +44,7 @@ clean:
 	$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME) $(LIBFT)
+	$(RM) $(NAME) $(LIBFT) $(PRINTF)
 
 re: fclean all
 

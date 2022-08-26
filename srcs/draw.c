@@ -1,6 +1,6 @@
 #include "../fdf.h"
 
-void		help(fdf *data)
+void		info(fdf *data)
 {
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 10, 0x247d58,
 	"To change scale use + or - ");
@@ -16,8 +16,7 @@ void		help(fdf *data)
 
 void	color(fdf *data)
 {
-	data->axle.color = ( data->axle.z != 0 ||  data->axle.z1 != 0) ?
-	data->axle.old_color +  data->axle.z * 6 : 0xffffff;
+	data->axle.color = ( data->axle.z != 0 ||  data->axle.z1 != 0) ? data->axle.old_color +  data->axle.z * 2 : 0xffffff;
 }
 
 
@@ -58,10 +57,8 @@ void    breseham(fdf *data)
 	 	isometric(data);
 		else
 		flat_part(data);
-	//-----------------------------
 	x_step = data->axle.x1 - data->axle.x;
 	y_step = data->axle.y1 - data->axle.y;
-	//---------------------------------------------------------------
 	max = find_max_num(change_sign(x_step), change_sign(y_step));
 	x_step /= max;
 	y_step /= max;
@@ -75,7 +72,7 @@ void    breseham(fdf *data)
 
 void	draw_wireframe(fdf *data)
 {
-	help(data);
+	//info(data);
 	 data->axle.y_f = 0;
 
 	while (data->axle.y_f < data->map_height)

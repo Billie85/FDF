@@ -8,5 +8,6 @@ int	get_height(fdf *data)
 	while(get_next_line(data->map_fd) != NULL)
 		data->map_height++;
 	close(data->map_fd);
+	//printf("data->map_height is %d\n", data->map_height);//11
 	return(data->map_height);
 }

@@ -19,5 +19,6 @@ int	get_width(fdf *data)
 		take_line = get_next_line(data->map_fd);
 	}
 	close(data->map_fd);
+	//printf("data->map_width is %d\n", data->map_width);//19
 	return (data->map_width); //幅の数は->19
 }

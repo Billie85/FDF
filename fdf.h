@@ -1,7 +1,10 @@
 #ifndef FDF_H
 # define FDF_H
 # define ANGLE         0.52359877
+# define ANSI_COLOR_ORANGE ft_printf("\x1b[33m");
+# define BACK_COLOR	ft_printf("\x1b[0m");
 
+#include "ft_printf/ft_printf.h"
 #include "get_next_line/get_next_line.h"
 #include "mlx_linux/mlx.h"
 #include "libft/libft.h"
