@@ -19,23 +19,26 @@ int	destroy_window(t_fdf *data)
 	return (0);
 }
 
+int	esc_window(int key, t_fdf *data)
+{
+	printf("hi\n");
+	if (key == 65307)
+		destroy_window (data);
+}
+
 static int	check_error(int argc, char **argv)
 {
 	int	file_name;
 
 	if (argc != 2)
 	{
-		(void)ANSI_COLOR_ORANGE;
 		ft_printf("Error input file.\n");
-		(void)BACK_COLOR;
 		exit (EXIT_FAILURE);
 	}
 	file_name = ft_strlen(argv[1]) - 4;
 	if (ft_memcmp(&argv[1][file_name], ".txt", 4) != 0)
 	{
-		(void)ANSI_COLOR_ORANGE;
 		ft_printf("The file it's not 'txt'.\n");
-		(void)BACK_COLOR;
 		exit (EXIT_FAILURE);
 	}
 	else if (ft_memcmp(&argv[1][file_name], ".txt", 4) == 0)
@@ -52,7 +55,8 @@ int	main(int argc, char **argv)
 	read_map(data);
 	window(data);
 	draw_wireframe(data);
-	mlx_hook(data->win_ptr, 2, 5, deal_key, data);
+	mlx_hook(data->win_ptr, 2, 1L << 0, deal_key, data);
+	//mlx_hook(data->win_ptr, 2, 1L << 0, esc_window, data);
 	mlx_hook(data->win_ptr, 17, 0, destroy_window, data);
 	mlx_loop(data->mlx_ptr);
 	close(data->map_fd);

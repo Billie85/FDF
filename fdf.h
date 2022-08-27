@@ -6,15 +6,13 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 18:40:02 by root              #+#    #+#             */
-/*   Updated: 2022/08/27 18:46:21 by root             ###   ########.fr       */
+/*   Updated: 2022/08/27 22:39:51 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 # define ANGLE         0.52359877
-# define ANSI_COLOR_ORANGE ft_printf("\x1b[33m");
-# define BACK_COLOR	ft_printf("\x1b[0m");
 
 # include "ft_printf/ft_printf.h"
 # include "get_next_line/get_next_line.h"
@@ -46,7 +44,6 @@ typedef struct s_ax
 	float	y1_f;
 	float	alt;
 	int		color;
-	int		old_color;
 	int		view;
 }			t_ax;
 
@@ -59,7 +56,6 @@ typedef struct s_t_fdf
 	int		map_height;
 	int		**z_matrix;
 	int		zoom;
-	int		color;
 	int		**z_matrix_color;
 	int		shift_x;
 	int		shift_y;

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 11:35:23 by root              #+#    #+#             */
-/*   Updated: 2022/08/27 18:46:57 by root             ###   ########.fr       */
+/*   Updated: 2022/08/27 21:18:35 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ void	read_map(t_fdf *r)
 	r->map_fd = open(r->file_name, O_RDONLY, 0);
 	if (r->map_fd == -1)
 	{
-		(void)ANSI_COLOR_ORANGE;
 		ft_printf("Could not open file.\n");
-		(void)BACK_COLOR;
 		exit (EXIT_FAILURE);
 	}
 	r->line = get_next_line(r->map_fd);

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 09:42:37 by root              #+#    #+#             */
-/*   Updated: 2022/08/27 18:46:44 by root             ###   ########.fr       */
+/*   Updated: 2022/08/27 22:34:02 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 void	color(t_fdf *data)
 {
-	data->ax.color = ( data->ax.z != 0 ||  data->ax.z1 != 0) ?
-	data->ax.old_color +  data->ax.z * 2 : 0xffffff;
+	if (data->ax.z > 0 || data->ax.z1 > 0)
+		data->ax.color = 0x24747d;
+	else
+		data->ax.color = 0xffffff;
 }
 
 static float	find_max_num(float a, float b)
@@ -43,12 +45,6 @@ void	init_xyz(t_fdf *i)
 	i->ax.y = i->ax.y_f;
 	i->ax.y1 = i->ax.y1_f;
 }
-
-//画面右向きに増えていくスクリーンX座標。
-//xは開始座標　x1は終了座標
-
-//画面下向きに増えていくスクリーンY座標。
-//yは開始座標　y1は終了座標
 
 void	breseham(t_fdf *b)
 {

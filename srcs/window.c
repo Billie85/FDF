@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 09:42:12 by root              #+#    #+#             */
-/*   Updated: 2022/08/27 18:49:15 by root             ###   ########.fr       */
+/*   Updated: 2022/08/27 22:43:10 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ void	window(t_fdf *data)
 	data->shift_x = 760;
 	data->shift_y = 300;
 	data->ax.view = 7;
-	data->color = 0x24747d;
-	data->ax.old_color = 0x7d2424;
+	data->ax.color = 0x24747d;
 	data->zoom = 30;
 	data->ax.alt = 1;
 }
