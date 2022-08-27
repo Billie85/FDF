@@ -1,28 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   isometric.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/27 18:33:38 by root              #+#    #+#             */
+/*   Updated: 2022/08/27 18:47:15 by root             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../fdf.h"
 
-void	isometric(fdf *data)
+static void	zoom_part(t_fdf *data)
 {
-	//-----------------------3D-------------------------------
-	data->axle.x = (data->axle.x - data->axle.y) * cos(1.1);
-	data->axle.y = (data->axle.x + data->axle.y) * sin(0.5) - data->axle.z / 2;
-	data->axle.x1 = (data->axle.x1 - data->axle.y1) * cos(1.1);
-	data->axle.y1 = (data->axle.x1 + data->axle.y1) * sin(0.5) - data->axle.z1 / 2;
-	//----------------------zoom------------------------------
-	data->axle.x *= data->zoom;
-	data->axle.x1 *= data->zoom;
-	data->axle.y *= data->zoom;
-	data->axle.y1 *= data->zoom;
-	//----------------------shift---------------------------------------
-	data->axle.x += data->shift_x;
-	data->axle.y += data->shift_y;
-	data->axle.x1 += data->shift_x;
-	data->axle.y1 += data->shift_y;
+	data->ax.x *= data->zoom;
+	data->ax.x1 *= data->zoom;
+	data->ax.y *= data->zoom;
+	data->ax.y1 *= data->zoom;
 }
 
-/* void	isometric(float *x, float *y, int z)
+static void	shift_part(t_fdf *data)
 {
-	float angle;
-	angle = 0.8;// π／６ isometricの定義
-	*x = (*x - *y) * cos(angle);
-	*y = (*x + *y) * sin(angle) - z;
-} */
+	data->ax.x += data->shift_x;
+	data->ax.y += data->shift_y;
+	data->ax.x1 += data->shift_x;
+	data->ax.y1 += data->shift_y;
+}
+
+void	isometric(t_fdf *data)
+{
+	data->ax.x = (data->ax.x - data->ax.y) * cos(1.1);
+	data->ax.y = (data->ax.x + data->ax.y) * sin(0.5) - data->ax.z / 8;
+	data->ax.x1 = (data->ax.x1 - data->ax.y1) * cos(1.1);
+	data->ax.y1 = (data->ax.x1 + data->ax.y1) * sin(0.5) - data->ax.z1 / 8;
+	zoom_part(data);
+	shift_part(data);
+}

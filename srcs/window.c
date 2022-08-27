@@ -1,16 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   window.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/27 09:42:12 by root              #+#    #+#             */
+/*   Updated: 2022/08/27 18:49:15 by root             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../fdf.h"
 
-void	window(fdf *data)
+void	window(t_fdf *data)
 {
 	data->mlx_ptr = mlx_init();
-	data->win_x = 1920;
-	data->win_y = 1000;
-	data->win_ptr = mlx_new_window(data->mlx_ptr, data->win_x, data->win_y, "FDF");
+	data->w_x = 1920;
+	data->w_y = 1000;
+	data->win_ptr = mlx_new_window(data->mlx_ptr, data->w_x, data->w_y, "FDF");
 	data->shift_x = 760;
 	data->shift_y = 300;
-	data->axle.view = 7;
+	data->ax.view = 7;
 	data->color = 0x24747d;
-	data->axle.old_color = 0x7d2424;
+	data->ax.old_color = 0x7d2424;
 	data->zoom = 30;
-	data->axle.altitude = 1;
+	data->ax.alt = 1;
 }

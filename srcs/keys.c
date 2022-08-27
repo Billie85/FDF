@@ -1,65 +1,76 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   keys.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/27 15:54:33 by root              #+#    #+#             */
+/*   Updated: 2022/08/27 18:50:55 by root             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../fdf.h"
 
-static void color_key(int key, fdf *data)
+int	esc_window(t_fdf *data)
+{
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	exit(EXIT_FAILURE);
+}
+
+static void	color_key(int key, t_fdf *data)
 {
 	if (key == 49)
-		data->axle.color = 0x33ff00; //green
+		data->ax.old_color = 0x33ff00;
 	if (key == 50)
-		data->axle.color = 0xFF00D0; //pink
+		data->ax.old_color = 0xFF00D0;
 	if (key == 51)
-		data->axle.color = 0x664200; //orange
+		data->ax.old_color = 0x664200;
 	if (key == 52)
-		data->axle.color = 0x009999; //blue
+		data->ax.old_color = 0x009999;
 	if (key == 53)
-		data->axle.color = 0x8C00FF; //purple
+		data->ax.old_color = 0x8C00FF;
 	if (key == 54)
-		data->axle.color = 0x700C0B;
+		data->ax.old_color = 0x700C0B;
 	if (key == 55)
-		data->axle.color = 0xEF6E6E;
+		data->ax.old_color = 0xEF6E6E;
 	if (key == 56)
-		data->axle.color = 0xFFA400;
+		data->ax.old_color = 0xFFA400;
 	if (key == 57)
-		data->axle.color = 0xB9DD64;
+		data->ax.old_color = 0xB9DD64;
 	if (key == 58)
-		data->axle.color = 0xF4D500;
+		data->ax.old_color = 0xF4D500;
 }
 
-static void view_key(int key, fdf *data)
+static void	zoom_key(int key, t_fdf *data)
 {
-		if (key == 122)//z
-		data->axle.view = 6;
-	if (key == 120)//x
-		data->axle.view = 7;
-}
-static void zoom_key(int key, fdf *data)
-{
-	if (key == 119)//w
-		data->zoom  += 5;
-	if (key == 115)//s
+	if (key == 119)
+		data->zoom += 5;
+	if (key == 115)
 		data->zoom -= 5;
 }
-static void z_axle_up_down(int key, fdf *data)
+
+static void	z_ax_up_down(int key, t_fdf *data)
 {
 	if (key == 97)
-	data->axle.altitude += 0.1;//a
+	data->ax.alt += 0.1;
 	if (key == 100)
-		data->axle.altitude -= 0.1;//d
+		data->ax.alt -= 0.1;
 }
 
-int	deal_key(int key, fdf *data)
+int	deal_key(int key, t_fdf *data)
 {
-	if (key == 65362) //up
+	if (key == 65362)
 		data->shift_y -= 15;
-	if (key == 65363) //right
+	if (key == 65363)
 		data->shift_x += 15;
-	if (key == 65364) //down
+	if (key == 65364)
 		data->shift_y += 15;
-	if (key == 65361) //left
+	if (key == 65361)
 		data->shift_x -= 15;
 	color_key(key, data);
-	view_key(key, data);
 	zoom_key(key, data);
-	z_axle_up_down(key, data);
+	z_ax_up_down(key, data);
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	draw_wireframe(data);
 	return (0);

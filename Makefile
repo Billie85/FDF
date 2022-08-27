@@ -10,7 +10,6 @@ SRCS		=	./srcs/isometric.c \
 				./srcs/main.c \
 				./srcs/keys.c \
 				./srcs/window.c \
-				./srcs/flat_part.c \
 				./get_next_line/get_next_line.c \
 				./get_next_line/get_next_line_utils.c \
 
@@ -23,7 +22,6 @@ LIBMLX		= libmlx.a
 CC			= gcc
 
 CFLAGS		:= -Wall -Wextra -Werror
-#INCS		= -I ./fdf.h ./libft/libft.h
 
 RM			= rm -f
 
@@ -49,7 +47,3 @@ fclean: clean
 re: fclean all
 
 PHONY: fclean clean all re
-
-#libft and get_next_lineが読み込めなかった部分がいくつかあったけど
-#原因としては、srcsの部分で細かく指定されていなかったのが原因
-#makefileはget_next_lineにないから、でもlibftの方ではあるから、libftで別で指定しないといけない。

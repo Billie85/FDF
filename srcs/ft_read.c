@@ -1,25 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_read.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/27 11:35:23 by root              #+#    #+#             */
+/*   Updated: 2022/08/27 18:46:57 by root             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../fdf.h"
 
-void	read_map(fdf *data)
+void	read_map(t_fdf *r)
 {
-	data->map_height = get_height(data);//高さ //11
-	data->map_width =  get_width(data);//幅 //19
-
-	data->z_matrix = (int **)malloc(sizeof(int*) * (data->map_height + 1)); //z軸
-
-	data->i = 0;
-	while (data->i <= data->map_height)
-		data->z_matrix[data->i++] = (int *)malloc(sizeof(int) * (data->map_width + 1));
-
-	data->i = 0;
-	data->map_fd = open(data->file_name, O_RDONLY, 0);
-	data->line = get_next_line(data->map_fd);
-	while (data->line != NULL)
+	r->map_height = get_height(r);
+	r->map_width = get_width(r);
+	r->z_matrix = (int **)malloc(sizeof(int *) * (r->map_height + 1));
+	r->i = 0;
+	while (r->i <= r->map_height)
+		r->z_matrix[r->i++] = (int *)malloc(sizeof(int) * (r->map_width + 1));
+	r->i = 0;
+	r->map_fd = open(r->file_name, O_RDONLY, 0);
+	if (r->map_fd == -1)
 	{
-		fill_matrix(data->z_matrix[data->i++], data->line);
-		data->line = get_next_line(data->map_fd);
+		(void)ANSI_COLOR_ORANGE;
+		ft_printf("Could not open file.\n");
+		(void)BACK_COLOR;
+		exit (EXIT_FAILURE);
 	}
-	close(data->map_fd);
+	r->line = get_next_line(r->map_fd);
+	while (r->line != NULL)
+	{
+		fill_matrix(r->z_matrix[r->i++], r->line);
+		r->line = get_next_line(r->map_fd);
+	}
+	close(r->map_fd);
 }
-//intの形で高さの情報を収納する行列を作って
-//高さの数字を書き込んでいく
