@@ -6,13 +6,12 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 18:40:02 by root              #+#    #+#             */
-/*   Updated: 2022/08/27 22:39:51 by root             ###   ########.fr       */
+/*   Updated: 2022/08/28 00:35:21 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-# define ANGLE         0.52359877
 
 # include "ft_printf/ft_printf.h"
 # include "get_next_line/get_next_line.h"
@@ -28,6 +27,7 @@
 # include <string.h>
 # include <stdint.h>
 # include <math.h>
+# define ESC_KEY 65307
 
 //draw inside the image.
 typedef struct s_ax
