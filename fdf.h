@@ -44,6 +44,7 @@ typedef struct s_ax
 	float	y1_f;
 	float	alt;
 	int		color;
+	int		new_color;
 	int		view;
 }			t_ax;
 
@@ -81,4 +82,5 @@ void	init_struct(t_fdf *data);
 int		deal_key(int key, t_fdf *data);
 int		key2(int key, t_fdf *data);
 void	window(t_fdf *data);
+int		destroy_window(t_fdf *data);
 #endif

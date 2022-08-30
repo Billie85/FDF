@@ -14,8 +14,8 @@
 
 void	color(t_fdf *data)
 {
-	if (data->ax.z > 0 || data->ax.z1 > 0)
-		data->ax.color = 0x24747d;
+	if (data->ax.z != 0 || data->ax.z1 != 0)
+		data->ax.color = data->ax.new_color + data->ax.z * 4;
 	else
 		data->ax.color = 0xffffff;
 }
