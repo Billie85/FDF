@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 21:28:47 by root              #+#    #+#             */
-/*   Updated: 2022/07/10 20:55:06 by root             ###   ########.fr       */
+/*   Updated: 2022/08/31 00:31:41 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,23 @@ char	*gnl_strchr(char *s, int c)
 
 char	*new_string(char *s1, char *s2)
 {
-	char	*new_s;
+	char	*n_s;
 	size_t	i_s1;
 	size_t	i_s2;
 	size_t	i_new;
 
-	new_s = (char *)malloc(sizeof(char) * (gnl_strlen(s1) + gnl_strlen(s2) + 1));
-	if (new_s == NULL)
+	n_s = (char *)malloc(sizeof(char) * (gnl_strlen(s1) + gnl_strlen(s2) + 1));
+	if (n_s == NULL)
 		return (NULL);
 	i_s1 = 0;
 	i_s2 = 0;
 	i_new = 0;
 	while (s1[i_s1] != '\0')
-		new_s[i_new++] = s1[i_s1++];
+		n_s[i_new++] = s1[i_s1++];
 	while (s2[i_s2] != '\0')
-		new_s[i_new++] = s2[i_s2++];
-	new_s[gnl_strlen(s1) + gnl_strlen(s2)] = '\0';
-	return (new_s);
+		n_s[i_new++] = s2[i_s2++];
+	n_s[gnl_strlen(s1) + gnl_strlen(s2)] = '\0';
+	return (n_s);
 }
 
 char	*save_buf_join(char *s1, char *s2)

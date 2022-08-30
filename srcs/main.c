@@ -43,6 +43,11 @@ int	main(int argc, char **argv)
 
 	check_error (argc, argv);
 	data = (t_fdf *)malloc(sizeof(t_fdf));
+	if (data == NULL)
+	{
+		free(data);
+		data = NULL;
+	}
 	data->file_name = argv[1];
 	read_map(data);
 	window(data);
@@ -51,6 +56,7 @@ int	main(int argc, char **argv)
 	mlx_hook(data->win_ptr, 17, 0, destroy_window, data);
 	mlx_loop(data->mlx_ptr);
 	close(data->map_fd);
+	free(data->z_matrix);
 	free(data);
 	return (0);
 }

@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   window.c                                           :+:      :+:    :+:   */
+/*   draw_wireframe2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/27 09:42:12 by root              #+#    #+#             */
-/*   Updated: 2022/08/31 01:42:48 by root             ###   ########.fr       */
+/*   Created: 2022/08/31 00:35:49 by root              #+#    #+#             */
+/*   Updated: 2022/08/31 00:38:11 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
-void	window(t_fdf *data)
+void	width_x(t_fdf *data)
 {
-	data->mlx_ptr = mlx_init();
-	data->w_x = 1920;
-	data->w_y = 1000;
-	data->win_ptr = mlx_new_window(data->mlx_ptr, data->w_x, data->w_y, "FDF");
-	data->shift_x = 760;
-	data->shift_y = 300;
-	data->ax.view = 7;
-	data->ax.color = 0x7d2424;
-	data->zoom = 30;
-	data->ax.alt = 1;
+	if (data->ax.x_f < data->map_width -1)
+	{
+		data->ax.x1_f = data->ax.x_f + 1;
+		data->ax.y1_f = data->ax.y_f;
+		breseham(data);
+	}
+}
+
+void	height_y(t_fdf *data)
+{
+	if (data->ax.y_f < data->map_height -1)
+	{
+		data->ax.x1_f = data->ax.x_f;
+		data->ax.y1_f = data->ax.y_f + 1;
+		breseham(data);
+	}
 }

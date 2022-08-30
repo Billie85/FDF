@@ -10,6 +10,8 @@ SRCS		=	./srcs/isometric.c \
 				./srcs/main.c \
 				./srcs/keys.c \
 				./srcs/window.c \
+				./srcs/color.c \
+				./srcs/draw_wireframe2.c \
 				./get_next_line/get_next_line.c \
 				./get_next_line/get_next_line_utils.c \
 

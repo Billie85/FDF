@@ -6,21 +6,13 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 09:42:37 by root              #+#    #+#             */
-/*   Updated: 2022/08/27 22:34:02 by root             ###   ########.fr       */
+/*   Updated: 2022/08/31 01:32:54 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
-void	color(t_fdf *data)
-{
-	if (data->ax.z != 0 || data->ax.z1 != 0)
-		data->ax.color = data->ax.new_color + data->ax.z * 4;
-	else
-		data->ax.color = 0xffffff;
-}
-
-static float	find_max_num(float a, float b)
+float	find_max_num(float a, float b)
 {
 	if (a > b)
 		return (a);
@@ -28,7 +20,7 @@ static float	find_max_num(float a, float b)
 		return (b);
 }
 
-static float	change_sign(float num)
+float	change_sign(float num)
 {
 	if (num > 0)
 		return (num);
@@ -76,18 +68,8 @@ void	draw_wireframe(t_fdf *data)
 		data->ax.x_f = 0;
 		while (data->ax.x_f < data->map_width)
 		{
-			if (data->ax.x_f < data->map_width -1)
-			{
-				data->ax.x1_f = data->ax.x_f + 1;
-				data->ax.y1_f = data->ax.y_f;
-				breseham(data);
-			}
-			if (data->ax.y_f < data->map_height -1)
-			{
-				data->ax.x1_f = data->ax.x_f;
-				data->ax.y1_f = data->ax.y_f + 1;
-				breseham(data);
-			}
+			width_x(data);
+			height_y(data);
 			data->ax.x_f++;
 		}
 		data->ax.y_f++;

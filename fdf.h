@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 18:40:02 by root              #+#    #+#             */
-/*   Updated: 2022/08/28 00:35:21 by root             ###   ########.fr       */
+/*   Updated: 2022/08/31 00:39:47 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,7 @@ int		deal_key(int key, t_fdf *data);
 int		key2(int key, t_fdf *data);
 void	window(t_fdf *data);
 int		destroy_window(t_fdf *data);
+void	color(t_fdf *data);
+void	width_x(t_fdf *data);
+void	height_y(t_fdf *data);
 #endif

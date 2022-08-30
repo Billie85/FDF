@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   window.c                                           :+:      :+:    :+:   */
+/*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/27 09:42:12 by root              #+#    #+#             */
-/*   Updated: 2022/08/31 01:42:48 by root             ###   ########.fr       */
+/*   Created: 2022/08/31 00:39:03 by root              #+#    #+#             */
+/*   Updated: 2022/08/31 01:09:10 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
-void	window(t_fdf *data)
+void	color(t_fdf *data)
 {
-	data->mlx_ptr = mlx_init();
-	data->w_x = 1920;
-	data->w_y = 1000;
-	data->win_ptr = mlx_new_window(data->mlx_ptr, data->w_x, data->w_y, "FDF");
-	data->shift_x = 760;
-	data->shift_y = 300;
-	data->ax.view = 7;
-	data->ax.color = 0x7d2424;
-	data->zoom = 30;
-	data->ax.alt = 1;
+	if (data->ax.z != 0 || data->ax.z1 != 0)
+		data->ax.color = data->ax.new_color + data->ax.z * 4;
+	else
+		data->ax.color = 0xffffff;
 }
