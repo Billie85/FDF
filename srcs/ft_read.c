@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 11:35:23 by root              #+#    #+#             */
-/*   Updated: 2022/08/31 00:59:02 by root             ###   ########.fr       */
+/*   Updated: 2022/08/31 16:21:58 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	free_function(t_fdf *data)
 {
 	free(data->z_matrix);
 	data->z_matrix = NULL;
-	return (0);
 }
 
 void	read_map(t_fdf *r)

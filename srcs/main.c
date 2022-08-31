@@ -28,12 +28,12 @@ static int	check_error(int argc, char **argv)
 		exit (EXIT_FAILURE);
 	}
 	file_name = ft_strlen(argv[1]) - 4;
-	if (ft_memcmp(&argv[1][file_name], ".txt", 4) != 0)
+	if (ft_memcmp(&argv[1][file_name], ".fdf", 4) != 0)
 	{
-		ft_printf("The file it's not 'txt'.\n");
+		ft_printf("The file it's not 'fdf'.\n");
 		exit (EXIT_FAILURE);
 	}
-	else if (ft_memcmp(&argv[1][file_name], ".txt", 4) == 0)
+	else if (ft_memcmp(&argv[1][file_name], ".fdf", 4) == 0)
 		return (0);
 }
 
@@ -56,7 +56,7 @@ int	main(int argc, char **argv)
 	mlx_hook(data->win_ptr, 17, 0, destroy_window, data);
 	mlx_loop(data->mlx_ptr);
 	close(data->map_fd);
-	free(data->z_matrix);
+	//free(data->z_matrix);
 	free(data);
 	return (0);
 }

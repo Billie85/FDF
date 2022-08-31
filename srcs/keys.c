@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 15:54:33 by root              #+#    #+#             */
-/*   Updated: 2022/08/31 01:42:34 by root             ###   ########.fr       */
+/*   Updated: 2022/08/31 02:36:33 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ int	deal_key(int key, t_fdf *data)
 		data->shift_y += 15;
 	if (key == 65361)
 		data->shift_x -= 15;
-	if (key == 65307)
-		destroy_window(data);
+	/* if (key == 65307)
+		destroy_window(data); */
 	color_key(key, data);
 	zoom_key(key, data);
 	z_ax_up_down(key, data);

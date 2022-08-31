@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 18:36:15 by root              #+#    #+#             */
-/*   Updated: 2022/08/27 18:46:30 by root             ###   ########.fr       */
+/*   Updated: 2022/08/31 15:28:33 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void	fill_matrix(int *z_line, char *line)
 		free(split_line[i]);
 		i++;
 	}
-	free(split_line[i]);
+	free(split_line);
 }

@@ -1,5 +1,6 @@
 NAME		= fdf
 PRINTF		= ./ft_printf/libftprintf.a
+FLAG		= -fsanitize=address
 
 SRCS		=	./srcs/isometric.c \
 				./srcs/draw.c \
@@ -33,7 +34,7 @@ $(NAME): $(OBJS)
 	$(MAKE) -C ./mlx_linux
 	$(MAKE) -C ./libft
 	$(MAKE) -C ./ft_printf
-	$(CC) $(OBJS) $(LIBFT) $(PRINTF) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(OBJS) $(LIBFT) $(PRINTF) $(FLAG) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 %.o: %.c
 	$(CC) -I/usr/include -Imlx_linux -O3 -c $< -o $@
