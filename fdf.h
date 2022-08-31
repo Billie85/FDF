@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 18:40:02 by root              #+#    #+#             */
-/*   Updated: 2022/08/31 18:48:52 by root             ###   ########.fr       */
+/*   Updated: 2022/08/31 20:54:27 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,6 @@ int		destroy_window(t_fdf *data);
 void	color(t_fdf *data);
 void	width_x(t_fdf *data);
 void	height_y(t_fdf *data);
+void	inits(t_fdf *data);
+void	inits2(t_ax *data);
 #endif

@@ -1,6 +1,5 @@
 NAME		= fdf
 PRINTF		= ./ft_printf/libftprintf.a
-#FLAG		= -fsanitize=address -g3
 
 SRCS		=	./srcs/isometric.c \
 				./srcs/draw.c \
@@ -12,6 +11,8 @@ SRCS		=	./srcs/isometric.c \
 				./srcs/keys.c \
 				./srcs/window.c \
 				./srcs/color.c \
+				./srcs/inits.c \
+				./srcs/inits2.c \
 				./srcs/draw_wireframe2.c \
 				./get_next_line/get_next_line.c \
 				./get_next_line/get_next_line_utils.c \
