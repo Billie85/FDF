@@ -6,13 +6,13 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 21:28:47 by root              #+#    #+#             */
-/*   Updated: 2022/08/31 00:31:41 by root             ###   ########.fr       */
+/*   Updated: 2022/08/31 19:30:32 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	gnl_strlen(char *s)
+size_t	gl_strlen(char *s)
 {
 	size_t	i;
 
@@ -24,7 +24,7 @@ size_t	gnl_strlen(char *s)
 	return (i);
 }
 
-char	*gnl_strchr(char *s, int c)
+char	*gl_strchr(char *s, int c)
 {
 	size_t	i;
 
@@ -42,23 +42,23 @@ char	*gnl_strchr(char *s, int c)
 
 char	*new_string(char *s1, char *s2)
 {
-	char	*n_s;
+	char	*new_s;
 	size_t	i_s1;
 	size_t	i_s2;
 	size_t	i_new;
 
-	n_s = (char *)malloc(sizeof(char) * (gnl_strlen(s1) + gnl_strlen(s2) + 1));
-	if (n_s == NULL)
+	new_s = (char *)malloc(sizeof(char) * (gl_strlen(s1) + gl_strlen(s2) + 1));
+	if (new_s == NULL)
 		return (NULL);
 	i_s1 = 0;
 	i_s2 = 0;
 	i_new = 0;
 	while (s1[i_s1] != '\0')
-		n_s[i_new++] = s1[i_s1++];
+		new_s[i_new++] = s1[i_s1++];
 	while (s2[i_s2] != '\0')
-		n_s[i_new++] = s2[i_s2++];
-	n_s[gnl_strlen(s1) + gnl_strlen(s2)] = '\0';
-	return (n_s);
+		new_s[i_new++] = s2[i_s2++];
+	new_s[gl_strlen(s1) + gl_strlen(s2)] = '\0';
+	return (new_s);
 }
 
 char	*save_buf_join(char *s1, char *s2)

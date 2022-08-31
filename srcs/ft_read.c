@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 11:35:23 by root              #+#    #+#             */
-/*   Updated: 2022/08/31 16:21:58 by root             ###   ########.fr       */
+/*   Updated: 2022/08/31 18:50:49 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	free_function(t_fdf *data)
 
 void	read_map(t_fdf *r)
 {
+	int	i;
+	
 	r->map_height = get_height(r);
 	r->map_width = get_width(r);
 	r->z_matrix = (int **)malloc(sizeof(int *) * (r->map_height + 1));
@@ -37,11 +39,12 @@ void	read_map(t_fdf *r)
 		ft_printf("Could not open file.\n");
 		exit (EXIT_FAILURE);
 	}
-	r->line = get_next_line(r->map_fd);
-	while (r->line != NULL)
+	while(1)
 	{
-		fill_matrix(r->z_matrix[r->i++], r->line);
 		r->line = get_next_line(r->map_fd);
+		if (r->line == NULL)
+			break ;
+		fill_matrix(r->z_matrix[r->i++], r->line);
+		free(r->line);
 	}
-	close(r->map_fd);
 }

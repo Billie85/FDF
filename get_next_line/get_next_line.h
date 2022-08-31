@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 21:33:42 by root              #+#    #+#             */
-/*   Updated: 2022/07/10 20:54:46 by root             ###   ########.fr       */
+/*   Updated: 2022/08/31 19:30:51 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 #  define BUFFER_SIZE 256
 # endif
 
-char	*gnl_strchr(char *s, int c);
-size_t	gnl_strlen(char *s);
+char	*gl_strchr(char *s, int c);
+size_t	gl_strlen(char *s);
 char	*save_buf_join(char *s1, char *s2);
 char	*join_together(char	*save, char *buf);
 char	*read_assign(int fd, char *save);

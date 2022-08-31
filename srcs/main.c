@@ -15,6 +15,7 @@
 int	destroy_window(t_fdf *data)
 {
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	free(data->line);
 	exit(0);
 }
 
@@ -56,7 +57,7 @@ int	main(int argc, char **argv)
 	mlx_hook(data->win_ptr, 17, 0, destroy_window, data);
 	mlx_loop(data->mlx_ptr);
 	close(data->map_fd);
-	//free(data->z_matrix);
+	free(data->z_matrix);
 	free(data);
 	return (0);
 }

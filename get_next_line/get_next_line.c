@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 21:28:37 by root              #+#    #+#             */
-/*   Updated: 2022/07/10 20:54:46 by root             ###   ########.fr       */
+/*   Updated: 2022/08/31 19:31:49 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*after_new_line(char *save)
 		free (save);
 		return (NULL);
 	}
-	after_line = (char *)malloc(sizeof(char) * (gnl_strlen(save) - i_save + 1));
+	after_line = (char *)malloc(sizeof(char) * (gl_strlen(save) - i_save + 1));
 	if (after_line == NULL)
 		return (NULL);
 	i_save++;
@@ -85,7 +85,7 @@ char	*read_assign(int fd, char *save)
 	if (buf == NULL)
 		return (NULL);
 	read_put = 100;
-	while (!gnl_strchr(save, '\n') && read_put != 0)
+	while (!gl_strchr(save, '\n') && read_put != 0)
 	{
 		read_put = read(fd, buf, BUFFER_SIZE);
 		if (read_put == -1)
