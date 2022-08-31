@@ -15,7 +15,6 @@
 int	destroy_window(t_fdf *data)
 {
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-	free(data->line);
 	exit(0);
 }
 
@@ -45,7 +44,7 @@ int	main(int argc, char **argv)
 	check_error (argc, argv);
 	data = (t_fdf *)malloc(sizeof(t_fdf));
 	if (data == NULL)
-			return (0);
+		return (0);
 	inits(data);
 	inits2(&data->ax);
 	data->file_name = argv[1];
