@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 15:54:33 by root              #+#    #+#             */
-/*   Updated: 2022/08/31 23:18:29 by root             ###   ########.fr       */
+/*   Updated: 2022/08/31 23:43:55 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	esc_close(t_fdf *data)
 static void	color_key(int key, t_fdf *data)
 {
 	if (key == 49)
-		data->ax.new_color = 0x33ff00;
+		data->ax.new_color = 0x38006b;
 	if (key == 50)
 		data->ax.new_color = 0xFF00D0;
 	if (key == 51)
-		data->ax.new_color = 0x664200;
+		data->ax.new_color = 0xf57f17;
 	if (key == 52)
 		data->ax.new_color = 0x009999;
 	if (key == 53)
