@@ -43,6 +43,7 @@ $(NAME): $(OBJS)
 clean:
 	make clean -C ./libft
 	make clean -C ./mlx_linux
+	make clean -C ./ft_printf
 	$(RM) $(OBJS)
 
 fclean: clean
